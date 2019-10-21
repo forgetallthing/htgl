@@ -35,9 +35,9 @@ export default new Router({
             }, {
                 path: '/edit',
                 component: resolve => require(['../components/page/edit.vue'], resolve),
-                meta: {
-                    title: '编辑'
-                }
+                // meta: {
+                //     title: '编辑'
+                // }
             }]
         },
         {

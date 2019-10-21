@@ -1,6 +1,6 @@
 <template>
   <div class="content-outerbox">
-    <el-row>
+    <el-row class="list">
       <el-col :span="12">
         <el-input placeholder="请输入内容" v-model="input" class="input-with-select">
           <el-button slot="append" icon="el-icon-search"></el-button>
@@ -85,7 +85,7 @@ export default {
   background-color: #ffffff;
   padding: 20px;
 }
-.el-col {
+.list .el-col {
   margin-bottom: 25px;
 }
 </style>
