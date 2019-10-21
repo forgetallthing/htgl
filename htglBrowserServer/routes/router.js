@@ -1,22 +1,30 @@
-"use strict";
+'use strict';
 
-const common = require("../common/common");
-const msg = require("../common/message");
+const common = require('../common/common');
+const msg = require('../common/message');
 const routerMap = {
     user: {
         // routerFile: require("./ncc"),`````````````
-        manager: require("../contribution/userManager"),
+        manager: require('../contribution/userManager'),
         router: {
             test: {
-                method: "get"
+                method: 'get'
             },
-            userLogin: {
-                method: "get"
+            userLogin: {},
+            getUserList: {},
+            addUser: {
+                method: 'post'
+            },
+            resetPW: {
+                method: 'post'
+            },
+            delUser: {
+                method: 'post'
             },
             // removeTotalCheck: { arg: ["userId", "userLogin", "p"] },
             getKey: {
-                method: "post",
-                ret: function (req, res, err, r) {
+                method: 'post',
+                ret: function(req, res, err, r) {
                     if (err) {
                         res.send(msg.buildErrMsg(err));
                     } else {
@@ -24,12 +32,11 @@ const routerMap = {
                         res.send(msg.buildSuccessMsg(r));
                     }
                 }
-            },
-
+            }
         }
     },
     equipment: {
-        manager: require("../contribution/equipmentManager"),
+        manager: require('../contribution/equipmentManager'),
         router: {
             getEquipmentStatus: {},
             getLoginPageEquipmentStatus: {},
@@ -40,11 +47,11 @@ const routerMap = {
             resetModelConf: {},
             resNet: {},
             getModelSet: {
-                method: "post"
+                method: 'post'
             },
             saveModelSet: {
-                method: "post"
-            },
+                method: 'post'
+            }
         }
     }
 };
@@ -57,7 +64,7 @@ for (let k in routerMap) {
     if (routerSetting.routerFile) {
         router = routerSetting.routerFile;
     } else {
-        const express = require("express");
+        const express = require('express');
         router = express.Router();
     }
     ((setting, r) => {
@@ -70,40 +77,46 @@ for (let k in routerMap) {
                 rn.path = path;
             }
             if (!rn.method) {
-                rn.method = "get";
+                rn.method = 'get';
             }
             if (!rn.funcName) {
                 rn.funcName = path;
             }
             if (!rn.arg) {
-                rn.arg = ["userId", "p"];
+                rn.arg = ['userId', 'p'];
             }
             (rn => {
-                r[rn.method]("/" + rn.path, function (req, res) {
+                r[rn.method]('/' + rn.path, function(req, res) {
                     if (!req.session) {
-                        res.send(msg.buildErrMsg({
-                            message: "您没有登录~"
-                        }));
+                        res.send(
+                            msg.buildErrMsg({
+                                message: '您没有登录~'
+                            })
+                        );
                         return;
                     }
                     let argVal = {
                         userId: req.session.userId,
                         userLogin: req.session.userLogin,
-                        menuId: req.session.menuId,
+                        menuId: req.session.menuId
                     };
-                    argVal.p = JSON.parse(req[rn.method == "get" ? "query" : "body"].p);
+                    argVal.p = JSON.parse(req[rn.method == 'get' ? 'query' : 'body'].p);
                     argVal.puserid = common.clone(argVal.p);
                     argVal.puserid.userid = argVal.userId;
                     let arg = rn.arg.map(v => argVal[v]);
-                    arg.push(rn.ret ? (err, r) => {
-                        rn.ret(req, res, err, r);
-                    } : (err, r) => {
-                        if (err) {
-                            res.send(msg.buildErrMsg(err));
-                        } else {
-                            res.send(msg.buildSuccessMsg(r));
-                        }
-                    });
+                    arg.push(
+                        rn.ret
+                            ? (err, r) => {
+                                  rn.ret(req, res, err, r);
+                              }
+                            : (err, r) => {
+                                  if (err) {
+                                      res.send(msg.buildErrMsg(err));
+                                  } else {
+                                      res.send(msg.buildSuccessMsg(r));
+                                  }
+                              }
+                    );
                     rn.manager[rn.funcName](...arg);
                 });
             })(rn);

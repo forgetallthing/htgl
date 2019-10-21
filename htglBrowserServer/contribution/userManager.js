@@ -18,6 +18,58 @@ function userLogin(userId, p, callback) {
     });
 }
 
+
+function getUserList(userId, p, callback) {
+    co(function* () {
+        console.log(userId, p)
+        callback(0, {
+            users: [{
+                userName:"admin",
+                role:"admin"
+            },{
+                userName:"Jackey",
+                role:"normal"
+            },{
+                userName:"Rock",
+                role:"normal"
+            },]
+        });
+    }).catch(function (err) {
+        callback(err);
+    });
+}
+
+function addUser(userId, p, callback) {
+    co(function* () {
+        console.log(userId, p)
+        callback(0, {});
+    }).catch(function (err) {
+        callback(err);
+    });
+}
+
+function resetPW(userId, p, callback) {
+    co(function* () {
+        console.log(userId, p)
+        callback(0, {});
+    }).catch(function (err) {
+        callback(err);
+    });
+}
+
+function delUser(userId, p, callback) {
+    co(function* () {
+        console.log(userId, p)
+        callback(0, {});
+    }).catch(function (err) {
+        callback(err);
+    });
+}
+
 module.exports = {
-    userLogin
+    userLogin,
+    getUserList,
+    addUser,
+    resetPW,
+    delUser,
 };

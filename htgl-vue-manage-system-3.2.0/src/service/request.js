@@ -42,8 +42,6 @@ service.interceptors.request.use(
 service.interceptors.response.use(
     response => {
         const res = response.data;
-        console.log(res)
-       
         if (res.state !== 1) {
             if (res.state === 3) {
                 //未登录
