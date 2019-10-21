@@ -80,14 +80,7 @@ export default {
 };
 </script>
 <style>
-.el-row {
-  margin-bottom: 20px;
-  background-color: #ffffff;
-  padding: 20px;
-}
-.list .el-col {
-  margin-bottom: 25px;
-}
+
 </style>
 
 <style scoped>
