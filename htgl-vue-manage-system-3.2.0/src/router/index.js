@@ -32,6 +32,12 @@ export default new Router({
                 meta: {
                     title: '密码管理'
                 }
+            }, {
+                path: '/edit',
+                component: resolve => require(['../components/page/edit.vue'], resolve),
+                meta: {
+                    title: '编辑'
+                }
             }]
         },
         {

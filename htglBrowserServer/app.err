@@ -437,3 +437,14 @@
     at Object.exports._errnoException (util.js:1026:11)
     at exports._exceptionWithHostPort (util.js:1049:20)
     at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1085:14)
+1571629547578	Error: 登录的key失效，请刷新页面重试。
+    at e:\test\htgl\htgl\htglBrowserServer\routes\login.js:48:34
+    at Layer.handle [as handle_request] (e:\test\htgl\htgl\htglBrowserServer\node_modules\express\lib\router\layer.js:95:5)
+    at next (e:\test\htgl\htgl\htglBrowserServer\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (e:\test\htgl\htgl\htglBrowserServer\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (e:\test\htgl\htgl\htglBrowserServer\node_modules\express\lib\router\layer.js:95:5)
+    at e:\test\htgl\htgl\htglBrowserServer\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (e:\test\htgl\htgl\htglBrowserServer\node_modules\express\lib\router\index.js:335:12)
+    at next (e:\test\htgl\htgl\htglBrowserServer\node_modules\express\lib\router\index.js:275:10)
+    at Function.handle (e:\test\htgl\htgl\htglBrowserServer\node_modules\express\lib\router\index.js:174:3)
+    at router (e:\test\htgl\htgl\htglBrowserServer\node_modules\express\lib\router\index.js:47:12)
