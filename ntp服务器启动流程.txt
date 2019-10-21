@@ -1,0 +1,14 @@
+ssh：ntp.fujutime.cn
+root & Qwe987654
+
+项目地址：http://ntp.fujutime.cn:8000
+接口地址：http://ntp.fujutime.cn:8001
+
+node，mongo，程序目录： /app
+mongo配置文件、数据，日志地址：/usr/local/mongodb/
+
+启动流程：
+1.mongodb：
+mongod --config /usr/local/mongodb/mongodb.conf
+2.启动node
+pm2 start /app/ntpBrowserServer/bin/www

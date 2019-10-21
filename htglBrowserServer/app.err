@@ -1,0 +1,379 @@
+1546588216146	您没有登录~
+1547176503975	undefined
+1547176605757	undefined
+1547176722481	undefined
+1547176729948	undefined
+1547176765418	undefined
+1547176895535	undefined
+1547176897069	undefined
+1547176900440	undefined
+1547176949913	undefined
+1561873135351	undefined
+1561877528808	Error: 登录错误，请关闭浏览器重新登录。
+    at e:\Workspace2017\jiedan\ntp\ntpBrowserServer\routes\login.js:47:34
+    at Layer.handle [as handle_request] (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\layer.js:95:5)
+    at next (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\layer.js:95:5)
+    at e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\index.js:335:12)
+    at next (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\index.js:275:10)
+    at Function.handle (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\index.js:174:3)
+    at router (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\index.js:47:12)
+1561877545736	Error: 登录错误，请关闭浏览器重新登录。
+    at e:\Workspace2017\jiedan\ntp\ntpBrowserServer\routes\login.js:47:34
+    at Layer.handle [as handle_request] (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\layer.js:95:5)
+    at next (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\layer.js:95:5)
+    at e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\index.js:335:12)
+    at next (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\index.js:275:10)
+    at Function.handle (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\index.js:174:3)
+    at router (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\index.js:47:12)
+1561877557065	Error: 登录错误，请关闭浏览器重新登录。
+    at e:\Workspace2017\jiedan\ntp\ntpBrowserServer\routes\login.js:47:34
+    at Layer.handle [as handle_request] (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\layer.js:95:5)
+    at next (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\layer.js:95:5)
+    at e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\index.js:335:12)
+    at next (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\index.js:275:10)
+    at Function.handle (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\index.js:174:3)
+    at router (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\index.js:47:12)
+1561877802120	Error: 登录错误，请关闭浏览器重新登录。
+    at e:\Workspace2017\jiedan\ntp\ntpBrowserServer\routes\login.js:47:34
+    at Layer.handle [as handle_request] (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\layer.js:95:5)
+    at next (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\layer.js:95:5)
+    at e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\index.js:335:12)
+    at next (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\index.js:275:10)
+    at Function.handle (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\index.js:174:3)
+    at router (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\index.js:47:12)
+1561877950381	Error: 登录错误，请关闭浏览器重新登录。
+    at e:\Workspace2017\jiedan\ntp\ntpBrowserServer\routes\login.js:47:34
+    at Layer.handle [as handle_request] (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\layer.js:95:5)
+    at next (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\layer.js:95:5)
+    at e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\index.js:335:12)
+    at next (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\index.js:275:10)
+    at Function.handle (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\index.js:174:3)
+    at router (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\index.js:47:12)
+1561878003839	Error: 登录错误，请关闭浏览器重新登录。
+    at e:\Workspace2017\jiedan\ntp\ntpBrowserServer\routes\login.js:47:34
+    at Layer.handle [as handle_request] (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\layer.js:95:5)
+    at next (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\layer.js:95:5)
+    at e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\index.js:335:12)
+    at next (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\index.js:275:10)
+    at Function.handle (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\index.js:174:3)
+    at router (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\index.js:47:12)
+1561885487740	ReferenceError: userId is not defined
+    at e:\Workspace2017\jiedan\ntp\ntpBrowserServer\contribution\equipmentManager.js:7:21
+    at next (native)
+    at onFulfilled (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\co\index.js:65:19)
+    at e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\co\index.js:54:5
+    at co (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\co\index.js:50:10)
+    at Object.getEquipmentStatus (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\contribution\equipmentManager.js:6:5)
+    at e:\Workspace2017\jiedan\ntp\ntpBrowserServer\routes\router.js:94:44
+    at Layer.handle [as handle_request] (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\layer.js:95:5)
+    at next (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\route.js:112:3)
+1561886335786	Error: 登录错误，请关闭浏览器重新登录。
+    at e:\Workspace2017\jiedan\ntp\ntpBrowserServer\routes\login.js:45:34
+    at Layer.handle [as handle_request] (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\layer.js:95:5)
+    at next (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\layer.js:95:5)
+    at e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\index.js:335:12)
+    at next (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\index.js:275:10)
+    at Function.handle (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\index.js:174:3)
+    at router (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\index.js:47:12)
+1561886340342	Error: 登录错误，请关闭浏览器重新登录。
+    at e:\Workspace2017\jiedan\ntp\ntpBrowserServer\routes\login.js:45:34
+    at Layer.handle [as handle_request] (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\layer.js:95:5)
+    at next (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\layer.js:95:5)
+    at e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\index.js:335:12)
+    at next (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\index.js:275:10)
+    at Function.handle (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\index.js:174:3)
+    at router (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\index.js:47:12)
+1561886471251	Error: 登录错误，请关闭浏览器重新登录。
+    at e:\Workspace2017\jiedan\ntp\ntpBrowserServer\routes\login.js:45:34
+    at Layer.handle [as handle_request] (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\layer.js:95:5)
+    at next (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\layer.js:95:5)
+    at e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\index.js:335:12)
+    at next (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\index.js:275:10)
+    at Function.handle (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\index.js:174:3)
+    at router (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\index.js:47:12)
+1561886520914	Error: 登录错误，请关闭浏览器重新登录。
+    at e:\Workspace2017\jiedan\ntp\ntpBrowserServer\routes\login.js:45:34
+    at Layer.handle [as handle_request] (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\layer.js:95:5)
+    at next (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\layer.js:95:5)
+    at e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\index.js:335:12)
+    at next (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\index.js:275:10)
+    at Function.handle (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\index.js:174:3)
+    at router (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\index.js:47:12)
+1561886553296	Error: 登录错误，请关闭浏览器重新登录。
+    at e:\Workspace2017\jiedan\ntp\ntpBrowserServer\routes\login.js:45:34
+    at Layer.handle [as handle_request] (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\layer.js:95:5)
+    at next (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\layer.js:95:5)
+    at e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\index.js:335:12)
+    at next (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\index.js:275:10)
+    at Function.handle (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\index.js:174:3)
+    at router (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\index.js:47:12)
+1561886870469	Error: 登录错误，请关闭浏览器重新登录。
+    at e:\Workspace2017\jiedan\ntp\ntpBrowserServer\routes\login.js:45:34
+    at Layer.handle [as handle_request] (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\layer.js:95:5)
+    at next (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\layer.js:95:5)
+    at e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\index.js:335:12)
+    at next (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\index.js:275:10)
+    at Function.handle (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\index.js:174:3)
+    at router (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\index.js:47:12)
+1562206571672	undefined
+1562206648519	undefined
+1562206960911	undefined
+1562206972471	undefined
+1562207005462	undefined
+1562207268723	undefined
+1562221158227	undefined
+1562221183852	undefined
+1562221445743	undefined
+1564815455218	Error: 登录的key失效，请刷新页面重试。
+    at e:\Workspace2017\jiedan\ntp\ntpBrowserServer\routes\login.js:41:34
+    at Layer.handle [as handle_request] (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\layer.js:95:5)
+    at next (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\layer.js:95:5)
+    at e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\index.js:335:12)
+    at next (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\index.js:275:10)
+    at Function.handle (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\index.js:174:3)
+    at router (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\express\lib\router\index.js:47:12)
+1564816435628	Error: Request failed with status code 404
+    at createError (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\axios\lib\core\createError.js:16:15)
+    at settle (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\axios\lib\core\settle.js:17:12)
+    at IncomingMessage.handleStreamEnd (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\axios\lib\adapters\http.js:237:11)
+    at emitNone (events.js:91:20)
+    at IncomingMessage.emit (events.js:185:7)
+    at endReadableNT (_stream_readable.js:974:12)
+    at _combinedTickCallback (internal/process/next_tick.js:74:11)
+    at process._tickCallback (internal/process/next_tick.js:98:9)
+1564816460493	Error: Request failed with status code 404
+    at createError (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\axios\lib\core\createError.js:16:15)
+    at settle (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\axios\lib\core\settle.js:17:12)
+    at IncomingMessage.handleStreamEnd (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\axios\lib\adapters\http.js:237:11)
+    at emitNone (events.js:91:20)
+    at IncomingMessage.emit (events.js:185:7)
+    at endReadableNT (_stream_readable.js:974:12)
+    at _combinedTickCallback (internal/process/next_tick.js:74:11)
+    at process._tickCallback (internal/process/next_tick.js:98:9)
+1564816480728	Error: Request failed with status code 404
+    at createError (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\axios\lib\core\createError.js:16:15)
+    at settle (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\axios\lib\core\settle.js:17:12)
+    at IncomingMessage.handleStreamEnd (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\axios\lib\adapters\http.js:237:11)
+    at emitNone (events.js:91:20)
+    at IncomingMessage.emit (events.js:185:7)
+    at endReadableNT (_stream_readable.js:974:12)
+    at _combinedTickCallback (internal/process/next_tick.js:74:11)
+    at process._tickCallback (internal/process/next_tick.js:98:9)
+1564817990253	Error: Request failed with status code 404
+    at createError (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\axios\lib\core\createError.js:16:15)
+    at settle (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\axios\lib\core\settle.js:17:12)
+    at IncomingMessage.handleStreamEnd (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\axios\lib\adapters\http.js:237:11)
+    at emitNone (events.js:91:20)
+    at IncomingMessage.emit (events.js:185:7)
+    at endReadableNT (_stream_readable.js:974:12)
+    at _combinedTickCallback (internal/process/next_tick.js:74:11)
+    at process._tickCallback (internal/process/next_tick.js:98:9)
+1564818843545	Error: connect ECONNREFUSED 106.13.0.214:8000
+    at Object.exports._errnoException (util.js:1026:11)
+    at exports._exceptionWithHostPort (util.js:1049:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1085:14)
+1564818895034	Error: connect ECONNREFUSED 106.13.0.214:8000
+    at Object.exports._errnoException (util.js:1026:11)
+    at exports._exceptionWithHostPort (util.js:1049:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1085:14)
+1564819021269	Error: connect ECONNREFUSED 106.13.0.214:8000
+    at Object.exports._errnoException (util.js:1026:11)
+    at exports._exceptionWithHostPort (util.js:1049:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1085:14)
+1564823775646	ReferenceError: version is not defined
+    at e:\Workspace2017\jiedan\ntp\ntpBrowserServer\contribution\equipmentManager.js:36:22
+    at next (native)
+    at onFulfilled (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\co\index.js:65:19)
+    at process._tickCallback (internal/process/next_tick.js:103:7)
+1564823777890	ReferenceError: version is not defined
+    at e:\Workspace2017\jiedan\ntp\ntpBrowserServer\contribution\equipmentManager.js:36:22
+    at next (native)
+    at onFulfilled (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\co\index.js:65:19)
+    at process._tickCallback (internal/process/next_tick.js:103:7)
+1564827746065	Error: Request failed with status code 500
+    at createError (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\axios\lib\core\createError.js:16:15)
+    at settle (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\axios\lib\core\settle.js:17:12)
+    at IncomingMessage.handleStreamEnd (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\axios\lib\adapters\http.js:237:11)
+    at emitNone (events.js:91:20)
+    at IncomingMessage.emit (events.js:185:7)
+    at endReadableNT (_stream_readable.js:974:12)
+    at _combinedTickCallback (internal/process/next_tick.js:74:11)
+    at process._tickCallback (internal/process/next_tick.js:98:9)
+1564827771082	Error: Request failed with status code 500
+    at createError (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\axios\lib\core\createError.js:16:15)
+    at settle (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\axios\lib\core\settle.js:17:12)
+    at IncomingMessage.handleStreamEnd (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\axios\lib\adapters\http.js:237:11)
+    at emitNone (events.js:91:20)
+    at IncomingMessage.emit (events.js:185:7)
+    at endReadableNT (_stream_readable.js:974:12)
+    at _combinedTickCallback (internal/process/next_tick.js:74:11)
+    at process._tickCallback (internal/process/next_tick.js:98:9)
+1564828138927	Error: Request failed with status code 500
+    at createError (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\axios\lib\core\createError.js:16:15)
+    at settle (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\axios\lib\core\settle.js:17:12)
+    at IncomingMessage.handleStreamEnd (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\axios\lib\adapters\http.js:237:11)
+    at emitNone (events.js:91:20)
+    at IncomingMessage.emit (events.js:185:7)
+    at endReadableNT (_stream_readable.js:974:12)
+    at _combinedTickCallback (internal/process/next_tick.js:74:11)
+    at process._tickCallback (internal/process/next_tick.js:98:9)
+1564828147464	Error: Request failed with status code 500
+    at createError (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\axios\lib\core\createError.js:16:15)
+    at settle (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\axios\lib\core\settle.js:17:12)
+    at IncomingMessage.handleStreamEnd (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\axios\lib\adapters\http.js:237:11)
+    at emitNone (events.js:91:20)
+    at IncomingMessage.emit (events.js:185:7)
+    at endReadableNT (_stream_readable.js:974:12)
+    at _combinedTickCallback (internal/process/next_tick.js:74:11)
+    at process._tickCallback (internal/process/next_tick.js:98:9)
+1564828253726	Error: Request failed with status code 500
+    at createError (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\axios\lib\core\createError.js:16:15)
+    at settle (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\axios\lib\core\settle.js:17:12)
+    at IncomingMessage.handleStreamEnd (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\axios\lib\adapters\http.js:237:11)
+    at emitNone (events.js:91:20)
+    at IncomingMessage.emit (events.js:185:7)
+    at endReadableNT (_stream_readable.js:974:12)
+    at _combinedTickCallback (internal/process/next_tick.js:74:11)
+    at process._tickCallback (internal/process/next_tick.js:98:9)
+1564828329766	Error: Request failed with status code 500
+    at createError (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\axios\lib\core\createError.js:16:15)
+    at settle (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\axios\lib\core\settle.js:17:12)
+    at IncomingMessage.handleStreamEnd (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\axios\lib\adapters\http.js:237:11)
+    at emitNone (events.js:91:20)
+    at IncomingMessage.emit (events.js:185:7)
+    at endReadableNT (_stream_readable.js:974:12)
+    at _combinedTickCallback (internal/process/next_tick.js:74:11)
+    at process._tickCallback (internal/process/next_tick.js:98:9)
+1564828478681	Error: Request failed with status code 500
+    at createError (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\axios\lib\core\createError.js:16:15)
+    at settle (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\axios\lib\core\settle.js:17:12)
+    at IncomingMessage.handleStreamEnd (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\axios\lib\adapters\http.js:237:11)
+    at emitNone (events.js:91:20)
+    at IncomingMessage.emit (events.js:185:7)
+    at endReadableNT (_stream_readable.js:974:12)
+    at _combinedTickCallback (internal/process/next_tick.js:74:11)
+    at process._tickCallback (internal/process/next_tick.js:98:9)
+1564829328544	Error: Request failed with status code 500
+    at createError (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\axios\lib\core\createError.js:16:15)
+    at settle (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\axios\lib\core\settle.js:17:12)
+    at IncomingMessage.handleStreamEnd (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\axios\lib\adapters\http.js:237:11)
+    at emitNone (events.js:91:20)
+    at IncomingMessage.emit (events.js:185:7)
+    at endReadableNT (_stream_readable.js:974:12)
+    at _combinedTickCallback (internal/process/next_tick.js:74:11)
+    at process._tickCallback (internal/process/next_tick.js:98:9)
+1564829332604	Error: Request failed with status code 500
+    at createError (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\axios\lib\core\createError.js:16:15)
+    at settle (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\axios\lib\core\settle.js:17:12)
+    at IncomingMessage.handleStreamEnd (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\axios\lib\adapters\http.js:237:11)
+    at emitNone (events.js:91:20)
+    at IncomingMessage.emit (events.js:185:7)
+    at endReadableNT (_stream_readable.js:974:12)
+    at _combinedTickCallback (internal/process/next_tick.js:74:11)
+    at process._tickCallback (internal/process/next_tick.js:98:9)
+1564924397940	ReferenceError: result is not defined
+    at e:\Workspace2017\jiedan\ntp\ntpBrowserServer\contribution\equipmentManager.js:91:22
+    at next (native)
+    at onFulfilled (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\co\index.js:65:19)
+    at process._tickCallback (internal/process/next_tick.js:103:7)
+1564928755492	Error: connect ECONNREFUSED 106.13.0.214:8000
+    at Object.exports._errnoException (util.js:1026:11)
+    at exports._exceptionWithHostPort (util.js:1049:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1085:14)
+1564928774639	Error: connect ECONNREFUSED 106.13.0.214:8000
+    at Object.exports._errnoException (util.js:1026:11)
+    at exports._exceptionWithHostPort (util.js:1049:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1085:14)
+1564928827958	Error: connect ECONNREFUSED 106.13.0.214:8000
+    at Object.exports._errnoException (util.js:1026:11)
+    at exports._exceptionWithHostPort (util.js:1049:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1085:14)
+1564928854113	Error: connect ECONNREFUSED 106.13.0.214:8000
+    at Object.exports._errnoException (util.js:1026:11)
+    at exports._exceptionWithHostPort (util.js:1049:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1085:14)
+1564929094122	Error: connect ECONNREFUSED 106.13.0.214:8000
+    at Object.exports._errnoException (util.js:1026:11)
+    at exports._exceptionWithHostPort (util.js:1049:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1085:14)
+1564992901942	Error: Request failed with status code 500
+    at createError (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\axios\lib\core\createError.js:16:15)
+    at settle (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\axios\lib\core\settle.js:17:12)
+    at IncomingMessage.handleStreamEnd (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\axios\lib\adapters\http.js:237:11)
+    at emitNone (events.js:91:20)
+    at IncomingMessage.emit (events.js:185:7)
+    at endReadableNT (_stream_readable.js:974:12)
+    at _combinedTickCallback (internal/process/next_tick.js:74:11)
+    at process._tickCallback (internal/process/next_tick.js:98:9)
+1564993092253	Error: connect ECONNREFUSED 106.13.0.214:8000
+    at Object.exports._errnoException (util.js:1026:11)
+    at exports._exceptionWithHostPort (util.js:1049:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1085:14)
+1564993183563	ReferenceError: resetconfResult is not defined
+    at e:\Workspace2017\jiedan\ntp\ntpBrowserServer\contribution\equipmentManager.js:152:13
+    at next (native)
+    at onFulfilled (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\co\index.js:65:19)
+    at process._tickCallback (internal/process/next_tick.js:103:7)
+1565072200963	ReferenceError: result is not defined
+    at e:\Workspace2017\jiedan\ntp\ntpBrowserServer\contribution\equipmentManager.js:67:22
+    at next (native)
+    at onFulfilled (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\co\index.js:65:19)
+    at process._tickCallback (internal/process/next_tick.js:103:7)
+1565072254716	ReferenceError: result is not defined
+    at e:\Workspace2017\jiedan\ntp\ntpBrowserServer\contribution\equipmentManager.js:67:22
+    at next (native)
+    at onFulfilled (e:\Workspace2017\jiedan\ntp\ntpBrowserServer\node_modules\co\index.js:65:19)
+    at process._tickCallback (internal/process/next_tick.js:103:7)
+1565075707346	undefined
+1565082809568	Error: connect ETIMEDOUT 221.218.156.244:8001
+    at Object.exports._errnoException (util.js:1026:11)
+    at exports._exceptionWithHostPort (util.js:1049:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1085:14)
+1565082820041	Error: connect ETIMEDOUT 221.218.156.244:8001
+    at Object.exports._errnoException (util.js:1026:11)
+    at exports._exceptionWithHostPort (util.js:1049:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1085:14)
+1571619184782	Error: connect ECONNREFUSED 127.0.0.1:8001
+    at Object.exports._errnoException (util.js:1026:11)
+    at exports._exceptionWithHostPort (util.js:1049:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1085:14)
