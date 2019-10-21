@@ -37,7 +37,7 @@
           </el-menu-item>
         </template>
       </template>
-    <span v-show="!collapse" class="tag-company"><a href="http://www.fujutime.cn" target="_blank">北京福聚通科技有限公司</a></span>
+    <!-- <span v-show="!collapse" class="tag-company"><a href="" target="_blank">合同管理系统</a></span> -->
     </el-menu>
   </div>
 </template>
@@ -51,23 +51,13 @@ export default {
       items: [
         {
           icon: "el-icon-lx-cascades",
-          index: "equipmentStatus",
-          title: "设备状态"
-        },
-        {
-          icon: "el-icon-lx-wifi",
-          index: "networkSet",
-          title: "网络设置"
+          index: "htList",
+          title: "合同管理"
         },
         {
           icon: "el-icon-lx-calendar",
-          index: "modelSet",
-          title: "模式设置"
-        },
-        {
-          icon: "el-icon-lx-settings",
-          index: "systemControl",
-          title: "系统控制"
+          index: "userManager",
+          title: "用户管理"
         },
         {
           icon: "el-icon-lx-profile",

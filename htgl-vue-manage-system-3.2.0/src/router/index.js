@@ -15,28 +15,16 @@ export default new Router({
                 title: '首页',
             },
             children: [{
-                path: '/equipmentStatus',
-                component: resolve => require(['../components/page/equipmentStatus.vue'], resolve),
+                path: '/htList',
+                component: resolve => require(['../components/page/htList.vue'], resolve),
                 meta: {
-                    title: '设备状态'
+                    title: '合同管理'
                 }
             }, {
-                path: '/networkSet',
-                component: resolve => require(['../components/page/networkSet.vue'], resolve),
+                path: '/userManager',
+                component: resolve => require(['../components/page/userManager.vue'], resolve),
                 meta: {
-                    title: '网络设置'
-                }
-            }, {
-                path: '/modelSet',
-                component: resolve => require(['../components/page/modelSet.vue'], resolve),
-                meta: {
-                    title: '模式设置'
-                }
-            }, {
-                path: '/systemControl',
-                component: resolve => require(['../components/page/systemControl.vue'], resolve),
-                meta: {
-                    title: '系统控制'
+                    title: '用户管理'
                 }
             }, {
                 path: '/passwordManager',
