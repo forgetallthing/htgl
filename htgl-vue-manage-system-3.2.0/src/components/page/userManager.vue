@@ -21,10 +21,13 @@
                         )
                     "
                     border
+                    :max-height="tableHeight"
+                    ref='table'
                     style="width: 100%"
+                    :default-sort = "{prop: 'userName', order: 'descending'}"
                 >
-                    <el-table-column prop="userName" label="用户名"></el-table-column>
-                    <el-table-column prop="roleName" label="用户角色"></el-table-column>
+                    <el-table-column prop="userName" label="用户名" sortable></el-table-column>
+                    <el-table-column prop="roleName" label="用户角色" sortable></el-table-column>
                     <el-table-column label="操作" width="200">
                         <template slot-scope="scope">
                             <el-button size="mini" @click="handleReset(scope.$index, scope.row)">重置密码</el-button>
@@ -73,6 +76,7 @@ export default {
         return {
             input: '',
             tableData: [],
+            tableHeight:window.innerHeight - 229,
             search: '',
             dialogFormVisible: false,
             form: {

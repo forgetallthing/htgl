@@ -21,16 +21,13 @@
                         )
                     "
                     border
+                    :max-height="tableHeight"
+                    ref='table'
                     style="width: 100%"
+                    :default-sort = "{prop: 'col1', order: 'descending'}"
                 >
-                    <el-table-column prop="col1" label="收费单号"></el-table-column>
-                    <el-table-column prop="col2" label="项目名称"></el-table-column>
-                    <!-- <el-table-column label="操作" width="100">
-            <template slot-scope="scope">
-              <el-button @click="handleEdit(scope.$index, scope.row)" type="text" size="small">编辑</el-button>
-              <el-button @click="handleDelete(scope.$index, scope.row)" type="text" size="small">删除</el-button>
-            </template>
-          </el-table-column>-->
+                    <el-table-column prop="col1" label="收费单号" sortable></el-table-column>
+                    <el-table-column prop="col2" label="项目名称" sortable></el-table-column>
                     <el-table-column label="操作" width="150">
                         <template slot-scope="scope">
                             <el-button size="mini" @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
@@ -50,7 +47,8 @@ export default {
     data: function() {
         return {
             tableData: [],
-            search: ''
+            search: '',
+            tableHeight:window.innerHeight - 229,
         };
     },
     mounted() {
