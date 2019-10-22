@@ -5,7 +5,6 @@ const cryptoJs = require("../public/common/crypto-js/crypto-js");
 
 function userLogin(userId, p, callback) {
     co(function* () {
-        console.log(userId, p)
         let user = yield common.toPromise(userDao.getUserInfo, {
             userName: p,
             password: p
@@ -21,7 +20,6 @@ function userLogin(userId, p, callback) {
 
 function getUserList(userId, p, callback) {
     co(function* () {
-        console.log(userId, p)
         callback(0, {
             users: [{
                 userName:"admin",
@@ -41,7 +39,6 @@ function getUserList(userId, p, callback) {
 
 function addUser(userId, p, callback) {
     co(function* () {
-        console.log(userId, p)
         callback(0, {});
     }).catch(function (err) {
         callback(err);
@@ -50,7 +47,6 @@ function addUser(userId, p, callback) {
 
 function resetPW(userId, p, callback) {
     co(function* () {
-        console.log(userId, p)
         callback(0, {});
     }).catch(function (err) {
         callback(err);
@@ -59,7 +55,6 @@ function resetPW(userId, p, callback) {
 
 function delUser(userId, p, callback) {
     co(function* () {
-        console.log(userId, p)
         callback(0, {});
     }).catch(function (err) {
         callback(err);

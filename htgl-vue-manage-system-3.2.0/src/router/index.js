@@ -4,7 +4,8 @@ import Router from 'vue-router';
 Vue.use(Router);
 
 export default new Router({
-    routes: [{
+    routes: [
+        {
             path: '/',
             redirect: '/login'
         },
@@ -12,33 +13,39 @@ export default new Router({
             path: '/',
             component: resolve => require(['../components/common/Home.vue'], resolve),
             meta: {
-                title: '首页',
+                title: '首页'
             },
-            children: [{
-                path: '/htList',
-                component: resolve => require(['../components/page/htList.vue'], resolve),
-                meta: {
-                    title: '合同管理'
+            children: [
+                {
+                    path: '/htList',
+                    component: resolve => require(['../components/page/htList.vue'], resolve),
+                    meta: {
+                        title: '合同管理'
+                    }
+                },
+                {
+                    path: '/userManager',
+                    component: resolve => require(['../components/page/userManager.vue'], resolve),
+                    meta: {
+                        title: '用户管理'
+                    }
+                },
+                {
+                    path: '/passwordManager',
+                    component: resolve => require(['../components/page/passwordManager.vue'], resolve),
+                    meta: {
+                        title: '密码管理'
+                    }
+                },
+                {
+                    path: '/edit',
+                    name: 'edit',
+                    component: resolve => require(['../components/page/edit.vue'], resolve)
+                    // meta: {
+                    //     title: '编辑'
+                    // }
                 }
-            }, {
-                path: '/userManager',
-                component: resolve => require(['../components/page/userManager.vue'], resolve),
-                meta: {
-                    title: '用户管理'
-                }
-            }, {
-                path: '/passwordManager',
-                component: resolve => require(['../components/page/passwordManager.vue'], resolve),
-                meta: {
-                    title: '密码管理'
-                }
-            }, {
-                path: '/edit',
-                component: resolve => require(['../components/page/edit.vue'], resolve),
-                // meta: {
-                //     title: '编辑'
-                // }
-            }]
+            ]
         },
         {
             path: '/login',
@@ -57,4 +64,4 @@ export default new Router({
             redirect: '/404'
         }
     ]
-})
+});

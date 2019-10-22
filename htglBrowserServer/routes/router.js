@@ -53,6 +53,22 @@ const routerMap = {
                 method: 'post'
             }
         }
+    },
+    contract: {
+        manager: require('../contribution/contractManager'),
+        router: {
+            getContracts: {},
+            getContractContent: {},
+            addContract: {
+                method: 'post'
+            },
+            saveContract: {
+                method: 'post'
+            },
+            delContract: {
+                method: 'post'
+            }
+        }
     }
 };
 
