@@ -288,139 +288,152 @@
 </template>
 
 <script>
-import { getContractContent, saveContract } from '../../service/dao';
+import { getContractContent, saveContract } from "../../service/dao";
 export default {
-    name: '',
-    data() {
-        return {
-            form: {
-                undertakingUnit: '',
-                CompleteDepartment: '',
-                contractType: '',
-                contractNumber: '',
-                cooperateDepartment: '',
-                htfs: '',
-                htje: '',
-                entryName: '',
-                jcje: '',
-                wtdw: '',
-                phone: '',
-                dfdw: '',
-                dzje: '',
-                htfcsj: '',
-                htfhsj: '',
-                gcszqy: '',
-                xmkssj: '',
-                yjwcsj: '',
-                xmfzr: '',
-                xmlb: '',
-                gcxz: '',
-                xmcy: '',
-                xmjxzt: '',
-                sfzdxm: '',
-                htshr: '',
-                fffs: '',
-                fgld: '',
-                htgy: '',
-                tqkg: '',
-                remark: '',
-                fileList: [],
-                enclosure: '',
-                addPerson: ''
-            },
-            rules: {
-                contractNumber: [{ required: true, message: '请输入合同编号', trigger: 'blur' }],
-                htfs: [{ required: true, message: '请输入合同份数', trigger: 'blur' }],
-                entryName: [{ required: true, message: '请输入项目名称', trigger: 'blur' }],
-                htje: [{ required: true, message: '请输入合同金额', trigger: 'blur' }],
-                wtdw: [{ required: true, message: '请输入委托单位', trigger: 'blur' }],
-                phone: [{ required: true, message: '请输入联系人及电话', trigger: 'blur' }],
-                dfdw: [{ required: true, message: '请输入对方单位', trigger: 'blur' }],
-                dzje: [{ required: true, message: '请输入垫资金额', trigger: 'blur' }],
-                gcszqy: [{ required: true, message: '请输入工程所在区域', trigger: 'blur' }],
-                xmkssj: [{ required: true, message: '请输入项目开始时间', trigger: 'blur' }],
-                yjwcsj: [{ required: true, message: '请输入预计完成时间', trigger: 'blur' }],
-                xmfzr: [{ required: true, message: '请输入项目负责人', trigger: 'blur' }],
-                htshr: [{ required: true, message: '请输入合同审核人', trigger: 'blur' }],
-                fgld: [{ required: true, message: '请输入分管领导', trigger: 'blur' }],
-                htgy: [{ required: true, message: '请输入合同概要', trigger: 'blur' }]
-            },
-            param: {}
-        };
-    },
-    mounted() {
-        this.init();
-    },
-    watch: {},
-    methods: {
-        init() {
-            console.log(this.$route.params);
-            this.param = this.$route.params;
-            // if(!this.$route.params.col1){
-            //   this.$router.go(-1);
-            // }
-            let loadingInstance = this.$loading({ target: '.content' });
-            getContractContent({
-                form: this.$route.params
-            }).then(
-                res => {
-                    loadingInstance.close();
-                },
-                error => {
-                    loadingInstance.close();
-                }
-            );
+  name: "",
+  data() {
+    return {
+      form: {},
+      rules: {
+        contractNumber: [
+          { required: true, message: "请输入合同编号", trigger: "blur" }
+        ],
+        htfs: [{ required: true, message: "请输入合同份数", trigger: "blur" }],
+        entryName: [
+          { required: true, message: "请输入项目名称", trigger: "blur" }
+        ],
+        htje: [{ required: true, message: "请输入合同金额", trigger: "blur" }],
+        wtdw: [{ required: true, message: "请输入委托单位", trigger: "blur" }],
+        phone: [
+          { required: true, message: "请输入联系人及电话", trigger: "blur" }
+        ],
+        dfdw: [{ required: true, message: "请输入对方单位", trigger: "blur" }],
+        dzje: [{ required: true, message: "请输入垫资金额", trigger: "blur" }],
+        gcszqy: [
+          { required: true, message: "请输入工程所在区域", trigger: "blur" }
+        ],
+        xmkssj: [
+          { required: true, message: "请输入项目开始时间", trigger: "blur" }
+        ],
+        yjwcsj: [
+          { required: true, message: "请输入预计完成时间", trigger: "blur" }
+        ],
+        xmfzr: [
+          { required: true, message: "请输入项目负责人", trigger: "blur" }
+        ],
+        htshr: [
+          { required: true, message: "请输入合同审核人", trigger: "blur" }
+        ],
+        fgld: [{ required: true, message: "请输入分管领导", trigger: "blur" }],
+        htgy: [{ required: true, message: "请输入合同概要", trigger: "blur" }]
+      },
+      param: {},
+      formStruct: [
+        {
+          id: "cjdw",
+          label: "承接单位",
+          type: "select",
+          isHidden: true,
+          isDisable: true,
+          span: 6,
+          items: [
+            { value: "吉利集团", label: "吉利集团" },
+            { value: "大众集团", label: "大众集团" }
+          ]
         },
-        submitForm(formName) {
-            this.$refs[formName].validate(valid => {
-                if (valid) {
-                    this.saveContract();
-                } else {
-                    this.$message.error('发现输入错误，请修改');
-                    return false;
-                }
-            });
+        {
+          id: "htlx",
+          label: "合同类型",
+          type: "select",
+          span: 6,
+          items: []
         },
-        saveContract() {
-            let loadingInstance = this.$loading({ target: '.content' });
-            saveContract({
-                form: this.form
-            }).then(
-                res => {
-                    loadingInstance.close();
-                    this.$message.success('保存成功');
-                },
-                error => {
-                    loadingInstance.close();
-                }
-            );
-        },
-        handleRemove(file, fileList) {
-            console.log(file, fileList);
-        },
-        handlePreview(file) {
-            console.log(file);
-        },
-        handleExceed(files, fileList) {
-            this.$message.warning(`当前限制选择 3 个文件，本次选择了 ${files.length} 个文件，共选择了 ${files.length + fileList.length} 个文件`);
-        },
-        beforeRemove(file, fileList) {
-            return this.$confirm(`确定移除 ${file.name}？`);
-        },
-        back() {
-            this.$router.go(-1);
+        {
+          id: "htbh",
+          label: "合同编号",
+          type: "input",
+          span: 6
         }
+      ]
+    };
+  },
+  mounted() {
+    this.init();
+  },
+  watch: {},
+  methods: {
+    init() {
+      console.log(this.$route.params);
+      this.param = this.$route.params;
+      // if(!this.$route.params.col1){
+      //   this.$router.go(-1);
+      // }
+      let loadingInstance = this.$loading({ target: ".content" });
+      getContractContent({
+        form: this.$route.params
+      }).then(
+        res => {
+          loadingInstance.close();
+        },
+        error => {
+          loadingInstance.close();
+        }
+      );
+    },
+    submitForm(formName) {
+      this.$refs[formName].validate(valid => {
+        if (valid) {
+          this.saveContract();
+        } else {
+          this.$message.error("发现输入错误，请修改");
+          return false;
+        }
+      });
+    },
+    saveContract() {
+      let loadingInstance = this.$loading({ target: ".content" });
+      saveContract({
+        form: this.form
+      }).then(
+        res => {
+          loadingInstance.close();
+          this.$message.success("保存成功");
+        },
+        error => {
+          loadingInstance.close();
+        }
+      );
+    },
+    handleRemove(file, fileList) {
+      console.log(file, fileList);
+    },
+    handlePreview(file) {
+      console.log(file);
+    },
+    handleExceed(files, fileList) {
+      this.$message.warning(
+        `当前限制选择 3 个文件，本次选择了 ${
+          files.length
+        } 个文件，共选择了 ${files.length + fileList.length} 个文件`
+      );
+    },
+    beforeRemove(file, fileList) {
+      return this.$confirm(`确定移除 ${file.name}？`);
+    },
+    back() {
+      this.$router.go(-1);
     }
+  }
 };
 </script>
 <style>
 .el-row {
-    margin-bottom: 20px;
-    background-color: #ffffff;
-    padding: 10px;
+  margin-bottom: 20px;
+  background-color: #ffffff;
+  padding: 10px;
 }
 .el-col {
-    margin-bottom: 6px;
+  margin-bottom: 6px;
 }
 </style>
 <style lang="" scoped></style>
