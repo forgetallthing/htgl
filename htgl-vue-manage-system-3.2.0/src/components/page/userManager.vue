@@ -22,15 +22,15 @@
                     "
                     border
                     :max-height="tableHeight"
-                    ref='table'
+                    ref="table"
                     style="width: 100%"
-                    :default-sort = "{prop: 'userName', order: 'descending'}"
+                    :default-sort="{ prop: 'userName', order: 'descending' }"
                 >
                     <el-table-column prop="userName" label="用户名" sortable></el-table-column>
                     <el-table-column prop="roleName" label="用户角色" sortable></el-table-column>
-                    <el-table-column label="操作" width="200">
+                    <el-table-column label="操作" width="120">
                         <template slot-scope="scope">
-                            <el-button size="mini" @click="handleReset(scope.$index, scope.row)">重置密码</el-button>
+                            <!-- <el-button size="mini" @click="handleReset(scope.$index, scope.row)">重置密码</el-button> -->
                             <el-button size="mini" type="danger" @click="handleDelete(scope.$index, scope.row)">删除</el-button>
                         </template>
                     </el-table-column>
@@ -41,6 +41,9 @@
             <el-form :rules="rules" ref="ruleForm" :model="form">
                 <el-form-item label="用户名" :label-width="formLabelWidth" prop="userName" style="width:80%">
                     <el-input v-model="form.userName" autocomplete="off"></el-input>
+                </el-form-item>
+                <el-form-item label="密码" :label-width="formLabelWidth" prop="passWord" style="width:80%">
+                    <el-input v-model="form.passWord" autocomplete="off"></el-input>
                 </el-form-item>
                 <el-form-item label="角色" :label-width="formLabelWidth">
                     <el-select v-model="form.role" placeholder="请选择用户角色">
@@ -68,9 +71,18 @@ export default {
             if (value === '') {
                 callback(new Error('请输入用户名'));
             } else {
-                console.log(this.form.userName);
                 if (!/^[a-zA-z0-9_]{1,50}$/.test(this.form.userName)) {
                     callback(new Error('用户名必须由数字字母下划线组成'));
+                }
+                callback();
+            }
+        };
+        var validatePassWord = (rule, value, callback) => {
+            if (value === '') {
+                callback(new Error('请输入密码'));
+            } else {
+                if (!/^[\w]{6,20}$/.test(this.form.passWord)) {
+                    callback(new Error('密码长度必须6位以上且由数字字母下划线组成'));
                 }
                 callback();
             }
@@ -78,16 +90,18 @@ export default {
         return {
             input: '',
             tableData: [],
-            tableHeight:window.innerHeight - 229,
+            tableHeight: window.innerHeight - 229,
             search: '',
             dialogFormVisible: false,
             form: {
                 userName: '',
+                passWord: '',
                 role: 'admin'
             },
             formLabelWidth: '120px',
             rules: {
-                userName: [{ validator: validateUserName, trigger: 'blur' }]
+                userName: [{ validator: validateUserName, trigger: 'blur' }],
+                passWord: [{ validator: validatePassWord, trigger: 'blur' }]
             }
         };
     },
@@ -121,6 +135,7 @@ export default {
             let loadingInstance = this.$loading({ target: '.content' });
             addUser({
                 userName: this.form.userName,
+                passWord: this.form.passWord,
                 role: this.form.role
             }).then(
                 res => {
