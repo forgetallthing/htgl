@@ -98,6 +98,7 @@ export function delContract(query) {
     });
 }
 
+//获取form结构、已填写数据，参数为合同编号和用户角色
 export function getContractContent(query) {
     return request({
         url: config.url + '/contract/getContractContent',

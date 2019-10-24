@@ -370,9 +370,11 @@ export default {
       // }
       let loadingInstance = this.$loading({ target: ".content" });
       getContractContent({
-        form: this.$route.params
+        htbh: 1,
+        role: "admin"
       }).then(
         res => {
+            console.log(res)
           loadingInstance.close();
         },
         error => {

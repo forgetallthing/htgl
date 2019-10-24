@@ -47,7 +47,16 @@ function getContracts(userId, p, callback) {
 
 function getContractContent(userId, p, callback) {
     co(function*() {
-        callback(0, {});
+        let res = {
+            data: {
+                htbh: '1234',
+                xmmc: '大数据采集'
+            },
+            struct: struct.base
+        };
+        if (p.role === 'input') res.struct = struct.input;
+        if (p.role === 'worker') res.struct = struct.worker;
+        callback(0, res);
     }).catch(function(err) {
         callback(err);
     });
@@ -82,5 +91,34 @@ module.exports = {
     getContractContent,
     addContract,
     saveContract,
-    delContract,
+    delContract
+};
+
+let struct = {
+    base: [
+        {
+            id: 'cjdw',
+            label: '承接单位',
+            type: 'select',
+            isHidden: true,
+            isDisable: true,
+            span: 6,
+            items: [{ value: '吉利集团', label: '吉利集团' }, { value: '大众集团', label: '大众集团' }]
+        },
+        {
+            id: 'htlx',
+            label: '合同类型',
+            type: 'select',
+            span: 6,
+            items: []
+        },
+        {
+            id: 'htbh',
+            label: '合同编号',
+            type: 'input',
+            span: 6
+        }
+    ],
+    input: [],
+    worker: []
 };
