@@ -23,8 +23,8 @@
             <el-input type="password" v-model="ruleForm.checkPass" autocomplete="off"></el-input>
           </el-form-item>
           <el-form-item>
+            <el-button @click="resetForm('ruleForm')">清空</el-button>
             <el-button class="button-r" type="primary" @click="submitForm('ruleForm')">修改密码</el-button>
-            <el-button @click="resetForm('ruleForm')">重置</el-button>
           </el-form-item>
         </el-form>
       </div>

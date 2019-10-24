@@ -45,7 +45,9 @@
                 <el-form-item label="角色" :label-width="formLabelWidth">
                     <el-select v-model="form.role" placeholder="请选择用户角色">
                         <el-option label="管理员" value="admin"></el-option>
-                        <el-option label="用户" value="normal"></el-option>
+                        <el-option label="录入员" value="input"></el-option>
+                        <el-option label="作业人员" value="worker"></el-option>
+                        <el-option label="财务人员" value="finance"></el-option>
                     </el-select>
                 </el-form-item>
             </el-form>
