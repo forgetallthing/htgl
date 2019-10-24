@@ -1,11 +1,11 @@
 <template>
-    <div class>
-        <el-row>
-            <el-col>
-                <el-button type="primary" icon="el-icon-back" size="mini" @click="back()">返回</el-button>
-            </el-col>
-            <el-col>
-                <el-form ref="ruleForm" :rules="rules" :model="form" label-position="left" label-width="100px">
+  <div class>
+    <el-row>
+      <el-col>
+        <el-button type="primary" icon="el-icon-back" size="mini" @click="back()">返回</el-button>
+      </el-col>
+      <el-col>
+        <!-- <el-form ref="ruleForm" :rules="rules" :model="form" label-position="left" label-width="100px">
                     <el-row :gutter="20">
                         <el-col :span="6">
                             <el-form-item label="承接单位">
@@ -281,10 +281,11 @@
                             </el-form-item>
                         </el-col>
                     </el-row>
-                </el-form>
-            </el-col>
-        </el-row>
-    </div>
+        </el-form>-->
+        <form-create class='edit-form' ref="fc" v-model="fApi" :rule="rule" :option="option"></form-create>
+      </el-col>
+    </el-row>
+  </div>
 </template>
 
 <script>
@@ -293,71 +294,105 @@ export default {
   name: "",
   data() {
     return {
-      form: {},
-      rules: {
-        contractNumber: [
-          { required: true, message: "请输入合同编号", trigger: "blur" }
-        ],
-        htfs: [{ required: true, message: "请输入合同份数", trigger: "blur" }],
-        entryName: [
-          { required: true, message: "请输入项目名称", trigger: "blur" }
-        ],
-        htje: [{ required: true, message: "请输入合同金额", trigger: "blur" }],
-        wtdw: [{ required: true, message: "请输入委托单位", trigger: "blur" }],
-        phone: [
-          { required: true, message: "请输入联系人及电话", trigger: "blur" }
-        ],
-        dfdw: [{ required: true, message: "请输入对方单位", trigger: "blur" }],
-        dzje: [{ required: true, message: "请输入垫资金额", trigger: "blur" }],
-        gcszqy: [
-          { required: true, message: "请输入工程所在区域", trigger: "blur" }
-        ],
-        xmkssj: [
-          { required: true, message: "请输入项目开始时间", trigger: "blur" }
-        ],
-        yjwcsj: [
-          { required: true, message: "请输入预计完成时间", trigger: "blur" }
-        ],
-        xmfzr: [
-          { required: true, message: "请输入项目负责人", trigger: "blur" }
-        ],
-        htshr: [
-          { required: true, message: "请输入合同审核人", trigger: "blur" }
-        ],
-        fgld: [{ required: true, message: "请输入分管领导", trigger: "blur" }],
-        htgy: [{ required: true, message: "请输入合同概要", trigger: "blur" }]
+    //   form: {},
+    //   rules: {
+    //     contractNumber: [
+    //       { required: true, message: "请输入合同编号", trigger: "blur" }
+    //     ],
+    //     htfs: [{ required: true, message: "请输入合同份数", trigger: "blur" }],
+    //     entryName: [
+    //       { required: true, message: "请输入项目名称", trigger: "blur" }
+    //     ],
+    //     htje: [{ required: true, message: "请输入合同金额", trigger: "blur" }],
+    //     wtdw: [{ required: true, message: "请输入委托单位", trigger: "blur" }],
+    //     phone: [
+    //       { required: true, message: "请输入联系人及电话", trigger: "blur" }
+    //     ],
+    //     dfdw: [{ required: true, message: "请输入对方单位", trigger: "blur" }],
+    //     dzje: [{ required: true, message: "请输入垫资金额", trigger: "blur" }],
+    //     gcszqy: [
+    //       { required: true, message: "请输入工程所在区域", trigger: "blur" }
+    //     ],
+    //     xmkssj: [
+    //       { required: true, message: "请输入项目开始时间", trigger: "blur" }
+    //     ],
+    //     yjwcsj: [
+    //       { required: true, message: "请输入预计完成时间", trigger: "blur" }
+    //     ],
+    //     xmfzr: [
+    //       { required: true, message: "请输入项目负责人", trigger: "blur" }
+    //     ],
+    //     htshr: [
+    //       { required: true, message: "请输入合同审核人", trigger: "blur" }
+    //     ],
+    //     fgld: [{ required: true, message: "请输入分管领导", trigger: "blur" }],
+    //     htgy: [{ required: true, message: "请输入合同概要", trigger: "blur" }]
+    //   },
+    //   param: {},
+    //   formStruct: [
+    //     {
+    //       id: "cjdw",
+    //       label: "承接单位",
+    //       type: "select",
+    //       isHidden: true,
+    //       isDisable: true,
+    //       span: 6,
+    //       items: [
+    //         { value: "吉利集团", label: "吉利集团" },
+    //         { value: "大众集团", label: "大众集团" }
+    //       ]
+    //     },
+    //     {
+    //       id: "htlx",
+    //       label: "合同类型",
+    //       type: "select",
+    //       span: 6,
+    //       items: []
+    //     },
+    //     {
+    //       id: "htbh",
+    //       label: "合同编号",
+    //       type: "input",
+    //       span: 6
+    //     }
+    //   ],
+      fApi: {},
+      model: {
       },
-      param: {},
-      formStruct: [
-        {
-          id: "cjdw",
-          label: "承接单位",
-          type: "select",
-          isHidden: true,
-          isDisable: true,
-          span: 6,
-          items: [
-            { value: "吉利集团", label: "吉利集团" },
-            { value: "大众集团", label: "大众集团" }
-          ]
+      rule: [
+        // {
+        //   type: "input",
+        //   title: "商品名称",
+        //   field: "goods_name",
+        //   value: "iphone 7",
+        //   col: {
+        //     span: 6,
+        //   },
+        //   props: {
+        //     type: "text",
+        //     disabled: true,
+        //   },
+        // }
+      ],
+      option: {
+        form:{
+            labelPosition: 'left',
+            labelWidth: '100px',
         },
-        {
-          id: "htlx",
-          label: "合同类型",
-          type: "select",
-          span: 6,
-          items: []
+        row:{
+            gutter: 10,
         },
-        {
-          id: "htbh",
-          label: "合同编号",
-          type: "input",
-          span: 6
+        submitBtn:{
+            innerText: "保存",
+        },
+        onSubmit: function(formData) {
+          alert(JSON.stringify(formData));
         }
-      ]
+      }
     };
   },
   mounted() {
+    this.model = this.fApi.model();
     this.init();
   },
   watch: {},
@@ -374,7 +409,8 @@ export default {
         role: "admin"
       }).then(
         res => {
-            console.log(res)
+          console.log(res);
+          this.rule = res.value.struct
           loadingInstance.close();
         },
         error => {

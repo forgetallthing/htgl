@@ -15,4 +15,7 @@
 .list .el-col {
   margin-bottom: 25px;
 }
+.edit-form .el-select,.edit-form .el-date-editor{
+  width: 100%;
+}
 </style>
