@@ -106,3 +106,12 @@ export function getContractContent(query) {
         params: query
     });
 }
+
+
+export function exportExcel(query) {
+    return request({
+        url: config.url + '/contract/exportExcel',
+        method: 'post',
+        data: query
+    });
+}

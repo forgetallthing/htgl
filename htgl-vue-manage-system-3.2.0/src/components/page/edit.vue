@@ -5,7 +5,7 @@
         <el-button type="primary" icon="el-icon-back" size="mini" @click="back()">返回</el-button>
       </el-col>
       <el-col :span="12" style='text-align:end'>
-        <el-button type="primary" icon="el-icon-download" size="mini" @click="exportTable()">导出excel</el-button>
+        <el-button  type="primary" icon="el-icon-download" size="mini" @click="exportTable()">导出excel</el-button>
       </el-col>
       <el-col>
         <form-create class='edit-form' ref="fc" v-model="fApi" :rule="rule" :option="option"></form-create>
@@ -15,16 +15,18 @@
 </template>
 
 <script>
-import { getContractContent, saveContract } from "../../service/dao";
+import {
+  getContractContent,
+  saveContract,
+  exportExcel
+} from "../../service/dao";
 export default {
   name: "",
   data() {
     return {
-      fApi: {
-      },
+      fApi: {},
       model: {},
-      rule: [
-      ],
+      rule: [],
       option: {
         form: {
           labelPosition: "left",
@@ -36,10 +38,14 @@ export default {
         submitBtn: {
           innerText: "保存"
         },
-        onSubmit: function(formData) {
-          alert(JSON.stringify(formData));
+        onSubmit: formData => {
+          this.saveContractFun(formData);
         }
-      }
+      },
+      param: {
+        htbh: "ht_001"
+      },
+      ms_role: "",
     };
   },
   mounted() {
@@ -50,26 +56,23 @@ export default {
   methods: {
     init() {
       console.log(this.$route.params);
-      this.param = this.$route.params;
+    //   this.param = this.$route.params;
+      this.ms_role = localStorage.getItem("ms_role");
       // if(!this.$route.params.col1){
       //   this.$router.go(-1);
       // }
       let loadingInstance = this.$loading({ target: ".content" });
       getContractContent({
-        htbh: 1,
-        role: "input"
+        htbh: this.param.htbh,
+        role: this.ms_role || "admin"
       }).then(
         res => {
-          console.log(res.value.struct);
-          
+          console.log(res.value);
           this.rule = res.value.struct;
-          this.$nextTick(()=>{
-            this.fApi.setValue(res.value.data)
-          })
-          setTimeout(()=>{
-             
-          },2000)
-          
+          this.$nextTick(() => {
+            this.fApi.setValue(res.value.data);
+          });
+          setTimeout(() => {}, 2000);
           loadingInstance.close();
         },
         error => {
@@ -77,20 +80,10 @@ export default {
         }
       );
     },
-    submitForm(formName) {
-      this.$refs[formName].validate(valid => {
-        if (valid) {
-          this.saveContract();
-        } else {
-          this.$message.error("发现输入错误，请修改");
-          return false;
-        }
-      });
-    },
-    saveContract() {
+    saveContractFun(formData) {
       let loadingInstance = this.$loading({ target: ".content" });
       saveContract({
-        form: this.form
+        formData: formData
       }).then(
         res => {
           loadingInstance.close();
@@ -120,8 +113,20 @@ export default {
     back() {
       this.$router.go(-1);
     },
-    exportTable(){
-
+    exportTable() {
+      let loadingInstance = this.$loading({ target: ".content" });
+      exportExcel({
+        htbh: this.param.htbh
+      }).then(
+        res => {
+            console.log(res.value.path)
+          loadingInstance.close();
+          this.$message.success("保存成功");
+        },
+        error => {
+          loadingInstance.close();
+        }
+      );
     }
   }
 };

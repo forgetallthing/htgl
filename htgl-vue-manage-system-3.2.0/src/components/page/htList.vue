@@ -158,7 +158,6 @@ export default {
   methods: {
     init() {
       this.ms_role = localStorage.getItem("ms_role");
-      this.ms_role ="input"
       if (this.ms_role === "input") {
         this.filterHidden = {
           wtdw: true,
@@ -226,6 +225,7 @@ export default {
         res => {
           loadingInstance.close();
           this.$message.success("新建成功");
+          this.dialogFormVisible = false
           this.form.htbh = "";
           this.init();
         },
@@ -257,7 +257,7 @@ export default {
         .then(_ => {
           let loadingInstance = this.$loading({ target: ".content" });
           delContract({
-            col1: row.col1
+            htbh: row.htbh
           }).then(
             res => {
               loadingInstance.close();

@@ -1,5 +1,6 @@
 const co = require('co');
 const common = require('../common/common');
+const config = require("../common/config");
 const contractDao = require('../dao/contractDao');
 
 function getContracts(userId, p, callback) {
@@ -26,17 +27,75 @@ function getContracts(userId, p, callback) {
 
 function getContractContent(userId, p, callback) {
     co(function* () {
-        // let list = yield common.toPromise(contractDao.getContractContent, { htbh: p.htbh })
+        let list = yield common.toPromise(contractDao.getContractContent, { htbh: p.htbh })
+        let turnData = list.ht_list.map((v) => {
+            return {
+                id: v[0],
+                cjdw: v[1],
+                htlx: v[2],
+                htbh: v[3],
+                htfcsj: v[4],
+                xmmc: v[5],
+                zybm: v[6],
+                htfhsj: v[7],
+                wtdw: v[8],
+                lxrjdh: v[9],
+                ysje: v[10],
+                xmkssj: v[11],
+                yjwcsj: v[12],
+                xmfzr: v[13],
+                xmcy: v[14],
+                wyzysj1: v[15],
+                wyzynr1: v[16],
+                wygzl1: v[17],
+                wyzyry1: v[18],
+                wyzysj2: v[19],
+                wyzynr2: v[20],
+                wygzl2: v[21],
+                wyzyry2: v[22],
+                wyzysj3: v[23],
+                wyzynr3: v[24],
+                wygzl3: v[25],
+                wyzyry3: v[26],
+                wyzysj4: v[27],
+                wyzynr4: v[28],
+                wygzl4: v[29],
+                wyzyry4: v[30],
+                nyzysj: v[31],
+                nyzynr: v[32],
+                nygzl: v[33],
+                nyzyry: v[34],
+                xmjsfs: v[35],
+                jsje: v[36],
+                gdsj: v[37],
+                sfkp: v[38],
+                fplx: v[39],
+                skjd: v[40],
+                sksj: v[41],
+                skje: v[42],
+                htgy: v[43],
+                bz: v[44],
+            }
+        })
+
         let res = {
-            data: {
-                htbh: '1234',
-                xmmc: '大数据采集',
-                skje:'张旺是王八蛋'
-            },
+            data: turnData[0],
             struct: struct.base
         };
         if (p.role === 'input') res.struct = struct.input;
         if (p.role === 'worker') res.struct = struct.worker;
+
+        for (let i = 0; i < res.struct.length; i++) {
+            if (res.struct[i].type == 'select') {
+                let ops = list[res.struct[i].field + "_selects"] || [];
+                ops = ops.map(v => {
+                    return {
+                        "value": v, "label": v
+                    }
+                })
+                res.struct[i].options = ops
+            }
+        }
         callback(0, res);
     }).catch(function (err) {
         callback(err);
@@ -46,7 +105,7 @@ function getContractContent(userId, p, callback) {
 function addContract(userId, p, callback) {
     co(function* () {
         let result = yield common.toPromise(contractDao.addContract, { htbh: p.htbh })
-        if (result.desc === "账号添加成功!") {
+        if (result.code == 1) {
             callback(0, {
                 msg: result.desc
             });
@@ -60,7 +119,14 @@ function addContract(userId, p, callback) {
 
 function saveContract(userId, p, callback) {
     co(function* () {
-        callback(0, {});
+        let result = yield common.toPromise(contractDao.saveContract, p.formData)
+        if (result.code == 1) {
+            callback(0, {
+                msg: result.desc
+            });
+        } else {
+            callback(result.desc);
+        }
     }).catch(function (err) {
         callback(err);
     });
@@ -69,9 +135,24 @@ function saveContract(userId, p, callback) {
 function delContract(userId, p, callback) {
     co(function* () {
         let result = yield common.toPromise(contractDao.delContract, { htbh: p.htbh })
-        if (result.desc === "账号添加成功!") {
+        if (result.desc === "删除成功!") {
             callback(0, {
                 msg: result.desc
+            });
+        } else {
+            callback(result.desc);
+        }
+    }).catch(function (err) {
+        callback(err);
+    });
+}
+
+function exportExcel(userId, p, callback) {
+    co(function* () {
+        let result = yield common.toPromise(contractDao.exportExcel, { htbh: p.htbh })
+        if (result.path) {
+            callback(0, {
+                path: config.api_url + result.path
             });
         } else {
             callback(result.desc);
@@ -86,7 +167,8 @@ module.exports = {
     getContractContent,
     addContract,
     saveContract,
-    delContract
+    delContract,
+    exportExcel,
 };
 
 let struct = {
@@ -97,8 +179,6 @@ let struct = {
             field: "cjdw",
             value: "123",
             options: [
-                { "value": "生态蔬菜", "label": "生态蔬菜" },
-                { "value": "新鲜水果", "label": "新鲜水果" },
             ],
             col: {
                 span: 6,
@@ -113,8 +193,6 @@ let struct = {
             field: "htlx",
             value: "",
             options: [
-                { "value": "框架合同", "label": "框架合同" },
-                { "value": "总价合同", "label": "总价合同" },
             ],
             col: {
                 span: 6,
@@ -165,10 +243,6 @@ let struct = {
             field: "zybm",
             value: "",
             options: [
-                { "value": "工程测绘部", "label": "工程测绘部" },
-                { "value": "不动产测绘部", "label": "不动产测绘部" },
-                { "value": "工程+不动产测绘部", "label": "工程+不动产测绘部" },
-                { "value": "其他", "label": "其他" },
             ],
             col: {
                 span: 6,
@@ -196,7 +270,6 @@ let struct = {
             field: "wtdw",
             value: "",
             options: [
-                { "value": "无", "label": "无" },
             ],
             col: {
                 span: 12,
@@ -210,7 +283,6 @@ let struct = {
             field: "lxrjdh",
             value: "",
             options: [
-                { "value": "无", "label": "无" },
             ],
             col: {
                 span: 6,
@@ -253,7 +325,7 @@ let struct = {
             props: {
                 "type": "date",
                 "format": "yyyy-MM-dd",
-                "placeholder": "预计完成时间",
+                "placeholder": "选择时间",
             }
         }, {
             type: "select",
@@ -261,7 +333,6 @@ let struct = {
             field: "xmfzr",
             value: "",
             options: [
-                { "value": "无", "label": "无" },
             ],
             col: {
                 span: 6,
@@ -275,7 +346,6 @@ let struct = {
             field: "xmcy",
             value: "",
             options: [
-                { "value": "无", "label": "无" },
             ],
             col: {
                 span: 6,
@@ -294,7 +364,7 @@ let struct = {
             props: {
                 "type": "date",
                 "format": "yyyy-MM-dd",
-                "placeholder": "预计完成时间",
+                "placeholder": "选择时间",
             }
         }, {
             type: "input",
@@ -340,7 +410,7 @@ let struct = {
             props: {
                 "type": "date",
                 "format": "yyyy-MM-dd",
-                "placeholder": "预计完成时间",
+                "placeholder": "选择时间",
             }
         }, {
             type: "input",
@@ -386,7 +456,7 @@ let struct = {
             props: {
                 "type": "date",
                 "format": "yyyy-MM-dd",
-                "placeholder": "预计完成时间",
+                "placeholder": "选择时间",
             }
         }, {
             type: "input",
@@ -432,7 +502,7 @@ let struct = {
             props: {
                 "type": "date",
                 "format": "yyyy-MM-dd",
-                "placeholder": "预计完成时间",
+                "placeholder": "选择时间",
             }
         }, {
             type: "input",
@@ -478,7 +548,7 @@ let struct = {
             props: {
                 "type": "date",
                 "format": "yyyy-MM-dd",
-                "placeholder": "预计完成时间",
+                "placeholder": "选择时间",
             }
         }, {
             type: "input",
@@ -519,7 +589,7 @@ let struct = {
             field: "xmjsfs",
             value: "",
             options: [
-                { "value": "无", "label": "无" },
+
             ],
             col: {
                 span: 12,
@@ -549,7 +619,7 @@ let struct = {
             props: {
                 "type": "date",
                 "format": "yyyy-MM-dd",
-                "placeholder": "预计完成时间",
+                "placeholder": "选择时间",
             }
         }, {
             type: "select",
@@ -557,7 +627,7 @@ let struct = {
             field: "sfkp",
             value: "",
             options: [
-                { "value": "无", "label": "无" },
+
             ],
             col: {
                 span: 12,
@@ -567,11 +637,11 @@ let struct = {
             },
         }, {
             type: "select",
-            title: "开票类型",
-            field: "kplx",
+            title: "发票类型",
+            field: "fplx",
             value: "",
             options: [
-                { "value": "无", "label": "无" },
+
             ],
             col: {
                 span: 12,
@@ -585,7 +655,7 @@ let struct = {
             field: "skjd",
             value: "",
             options: [
-                { "value": "无", "label": "无" },
+
             ],
             col: {
                 span: 12,
@@ -604,7 +674,7 @@ let struct = {
             props: {
                 "type": "date",
                 "format": "yyyy-MM-dd",
-                "placeholder": "预计完成时间",
+                "placeholder": "选择时间",
             }
         }, {
             type: "input",
@@ -647,8 +717,6 @@ let struct = {
         field: "cjdw",
         value: "",
         options: [
-            { "value": "生态蔬菜", "label": "生态蔬菜" },
-            { "value": "新鲜水果", "label": "新鲜水果" },
         ],
         col: {
             span: 6,
@@ -663,8 +731,6 @@ let struct = {
         field: "htlx",
         value: "",
         options: [
-            { "value": "框架合同", "label": "框架合同" },
-            { "value": "总价合同", "label": "总价合同" },
         ],
         col: {
             span: 6,
@@ -715,10 +781,6 @@ let struct = {
         field: "zybm",
         value: "",
         options: [
-            { "value": "工程测绘部", "label": "工程测绘部" },
-            { "value": "不动产测绘部", "label": "不动产测绘部" },
-            { "value": "工程+不动产测绘部", "label": "工程+不动产测绘部" },
-            { "value": "其他", "label": "其他" },
         ],
         col: {
             span: 6,
@@ -746,7 +808,7 @@ let struct = {
         field: "wtdw",
         value: "",
         options: [
-            { "value": "无", "label": "无" },
+
         ],
         col: {
             span: 12,
@@ -760,7 +822,7 @@ let struct = {
         field: "lxrjdh",
         value: "",
         options: [
-            { "value": "无", "label": "无" },
+
         ],
         col: {
             span: 6,
@@ -803,7 +865,7 @@ let struct = {
         props: {
             "type": "date",
             "format": "yyyy-MM-dd",
-            "placeholder": "预计完成时间",
+            "placeholder": "选择时间",
         }
     }, {
         type: "select",
@@ -811,14 +873,14 @@ let struct = {
         field: "xmfzr",
         value: "",
         options: [
-            { "value": "无", "label": "无" },
+
         ],
         col: {
             span: 6,
         },
         props: {
             filterable: true,
-            disabled:true,
+            disabled: true,
         },
     }, {
         type: "select",
@@ -826,14 +888,14 @@ let struct = {
         field: "xmcy",
         value: "",
         options: [
-            { "value": "无", "label": "无" },
+
         ],
         col: {
             span: 6,
         },
         props: {
             filterable: true,
-            disabled:true,
+            disabled: true,
         },
     }, {
         type: "DatePicker",
@@ -846,8 +908,8 @@ let struct = {
         props: {
             "type": "date",
             "format": "yyyy-MM-dd",
-            "placeholder": "预计完成时间",
-            disabled:true,
+            "placeholder": "选择时间",
+            disabled: true,
         }
     }, {
         type: "input",
@@ -859,7 +921,7 @@ let struct = {
         },
         props: {
             type: "text",
-            disabled:true,
+            disabled: true,
         },
     }, {
         type: "input",
@@ -871,7 +933,7 @@ let struct = {
         },
         props: {
             type: "text",
-            disabled:true,
+            disabled: true,
         },
     }, {
         type: "input",
@@ -883,7 +945,7 @@ let struct = {
         },
         props: {
             type: "text",
-            disabled:true,
+            disabled: true,
         },
     }, {
         type: "DatePicker",
@@ -896,8 +958,8 @@ let struct = {
         props: {
             "type": "date",
             "format": "yyyy-MM-dd",
-            "placeholder": "预计完成时间",
-            disabled:true,
+            "placeholder": "选择时间",
+            disabled: true,
         }
     }, {
         type: "input",
@@ -909,7 +971,7 @@ let struct = {
         },
         props: {
             type: "text",
-            disabled:true,
+            disabled: true,
         },
     }, {
         type: "input",
@@ -921,7 +983,7 @@ let struct = {
         },
         props: {
             type: "text",
-            disabled:true,
+            disabled: true,
         },
     }, {
         type: "input",
@@ -933,7 +995,7 @@ let struct = {
         },
         props: {
             type: "text",
-            disabled:true,
+            disabled: true,
         },
     }, {
         type: "DatePicker",
@@ -946,8 +1008,8 @@ let struct = {
         props: {
             "type": "date",
             "format": "yyyy-MM-dd",
-            "placeholder": "预计完成时间",
-            disabled:true,
+            "placeholder": "选择时间",
+            disabled: true,
         }
     }, {
         type: "input",
@@ -959,7 +1021,7 @@ let struct = {
         },
         props: {
             type: "text",
-            disabled:true,
+            disabled: true,
         },
     }, {
         type: "input",
@@ -971,7 +1033,7 @@ let struct = {
         },
         props: {
             type: "text",
-            disabled:true,
+            disabled: true,
         },
     }, {
         type: "input",
@@ -983,7 +1045,7 @@ let struct = {
         },
         props: {
             type: "text",
-            disabled:true,
+            disabled: true,
         },
     }, {
         type: "DatePicker",
@@ -996,8 +1058,8 @@ let struct = {
         props: {
             "type": "date",
             "format": "yyyy-MM-dd",
-            "placeholder": "预计完成时间",
-            disabled:true,
+            "placeholder": "选择时间",
+            disabled: true,
         }
     }, {
         type: "input",
@@ -1009,7 +1071,7 @@ let struct = {
         },
         props: {
             type: "text",
-            disabled:true,
+            disabled: true,
         },
     }, {
         type: "input",
@@ -1021,7 +1083,7 @@ let struct = {
         },
         props: {
             type: "text",
-            disabled:true,
+            disabled: true,
         },
     }, {
         type: "input",
@@ -1033,7 +1095,7 @@ let struct = {
         },
         props: {
             type: "text",
-            disabled:true,
+            disabled: true,
         },
     }, {
         type: "DatePicker",
@@ -1046,8 +1108,8 @@ let struct = {
         props: {
             "type": "date",
             "format": "yyyy-MM-dd",
-            "placeholder": "预计完成时间",
-            disabled:true,
+            "placeholder": "选择时间",
+            disabled: true,
         }
     }, {
         type: "input",
@@ -1059,7 +1121,7 @@ let struct = {
         },
         props: {
             type: "text",
-            disabled:true,
+            disabled: true,
         },
     }, {
         type: "input",
@@ -1071,7 +1133,7 @@ let struct = {
         },
         props: {
             type: "text",
-            disabled:true,
+            disabled: true,
         },
     }, {
         type: "input",
@@ -1083,7 +1145,7 @@ let struct = {
         },
         props: {
             type: "text",
-            disabled:true,
+            disabled: true,
         },
     }, {
         type: "select",
@@ -1091,14 +1153,14 @@ let struct = {
         field: "xmjsfs",
         value: "",
         options: [
-            { "value": "无", "label": "无" },
+
         ],
         col: {
             span: 12,
         },
         props: {
             filterable: true,
-            disabled:true,
+            disabled: true,
         },
     }, {
         type: "input",
@@ -1110,7 +1172,7 @@ let struct = {
         },
         props: {
             type: "text",
-            disabled:true,
+            disabled: true,
         },
     }, {
         type: "DatePicker",
@@ -1123,7 +1185,7 @@ let struct = {
         props: {
             "type": "date",
             "format": "yyyy-MM-dd",
-            "placeholder": "预计完成时间",
+            "placeholder": "选择时间",
         }
     }, {
         type: "hidden",
@@ -1131,7 +1193,7 @@ let struct = {
         field: "sfkp",
         value: "",
         options: [
-            { "value": "无", "label": "无" },
+
         ],
         col: {
             span: 12,
@@ -1141,11 +1203,11 @@ let struct = {
         },
     }, {
         type: "hidden",
-        title: "开票类型",
-        field: "kplx",
+        title: "发票类型",
+        field: "fplx",
         value: "",
         options: [
-            { "value": "无", "label": "无" },
+
         ],
         col: {
             span: 12,
@@ -1159,7 +1221,7 @@ let struct = {
         field: "skjd",
         value: "",
         options: [
-            { "value": "无", "label": "无" },
+
         ],
         col: {
             span: 12,
@@ -1178,7 +1240,7 @@ let struct = {
         props: {
             "type": "date",
             "format": "yyyy-MM-dd",
-            "placeholder": "预计完成时间",
+            "placeholder": "选择时间",
         }
     }, {
         type: "hidden",
@@ -1220,8 +1282,6 @@ let struct = {
         field: "cjdw",
         value: "",
         options: [
-            { "value": "生态蔬菜", "label": "生态蔬菜" },
-            { "value": "新鲜水果", "label": "新鲜水果" },
         ],
         col: {
             span: 6,
@@ -1236,8 +1296,6 @@ let struct = {
         field: "htlx",
         value: "",
         options: [
-            { "value": "框架合同", "label": "框架合同" },
-            { "value": "总价合同", "label": "总价合同" },
         ],
         col: {
             span: 6,
@@ -1288,10 +1346,6 @@ let struct = {
         field: "zybm",
         value: "",
         options: [
-            { "value": "工程测绘部", "label": "工程测绘部" },
-            { "value": "不动产测绘部", "label": "不动产测绘部" },
-            { "value": "工程+不动产测绘部", "label": "工程+不动产测绘部" },
-            { "value": "其他", "label": "其他" },
         ],
         col: {
             span: 6,
@@ -1319,7 +1373,7 @@ let struct = {
         field: "wtdw",
         value: "",
         options: [
-            { "value": "无", "label": "无" },
+
         ],
         col: {
             span: 12,
@@ -1333,7 +1387,7 @@ let struct = {
         field: "lxrjdh",
         value: "",
         options: [
-            { "value": "无", "label": "无" },
+
         ],
         col: {
             span: 6,
@@ -1376,7 +1430,7 @@ let struct = {
         props: {
             "type": "date",
             "format": "yyyy-MM-dd",
-            "placeholder": "预计完成时间",
+            "placeholder": "选择时间",
         }
     }, {
         type: "select",
@@ -1384,7 +1438,7 @@ let struct = {
         field: "xmfzr",
         value: "",
         options: [
-            { "value": "无", "label": "无" },
+
         ],
         col: {
             span: 6,
@@ -1398,7 +1452,7 @@ let struct = {
         field: "xmcy",
         value: "",
         options: [
-            { "value": "无", "label": "无" },
+
         ],
         col: {
             span: 6,
@@ -1417,7 +1471,7 @@ let struct = {
         props: {
             "type": "date",
             "format": "yyyy-MM-dd",
-            "placeholder": "预计完成时间",
+            "placeholder": "选择时间",
         }
     }, {
         type: "input",
@@ -1463,7 +1517,7 @@ let struct = {
         props: {
             "type": "date",
             "format": "yyyy-MM-dd",
-            "placeholder": "预计完成时间",
+            "placeholder": "选择时间",
         }
     }, {
         type: "input",
@@ -1509,7 +1563,7 @@ let struct = {
         props: {
             "type": "date",
             "format": "yyyy-MM-dd",
-            "placeholder": "预计完成时间",
+            "placeholder": "选择时间",
         }
     }, {
         type: "input",
@@ -1555,7 +1609,7 @@ let struct = {
         props: {
             "type": "date",
             "format": "yyyy-MM-dd",
-            "placeholder": "预计完成时间",
+            "placeholder": "选择时间",
         }
     }, {
         type: "input",
@@ -1601,7 +1655,7 @@ let struct = {
         props: {
             "type": "date",
             "format": "yyyy-MM-dd",
-            "placeholder": "预计完成时间",
+            "placeholder": "选择时间",
         }
     }, {
         type: "input",
@@ -1642,7 +1696,7 @@ let struct = {
         field: "xmjsfs",
         value: "",
         options: [
-            { "value": "无", "label": "无" },
+
         ],
         col: {
             span: 12,
@@ -1672,7 +1726,7 @@ let struct = {
         props: {
             "type": "date",
             "format": "yyyy-MM-dd",
-            "placeholder": "预计完成时间",
+            "placeholder": "选择时间",
         }
     }, {
         type: "hidden",
@@ -1680,7 +1734,7 @@ let struct = {
         field: "sfkp",
         value: "",
         options: [
-            { "value": "无", "label": "无" },
+
         ],
         col: {
             span: 12,
@@ -1690,11 +1744,11 @@ let struct = {
         },
     }, {
         type: "hidden",
-        title: "开票类型",
-        field: "kplx",
+        title: "发票类型",
+        field: "fplx",
         value: "",
         options: [
-            { "value": "无", "label": "无" },
+
         ],
         col: {
             span: 12,
@@ -1708,7 +1762,7 @@ let struct = {
         field: "skjd",
         value: "",
         options: [
-            { "value": "无", "label": "无" },
+
         ],
         col: {
             span: 12,
@@ -1727,7 +1781,7 @@ let struct = {
         props: {
             "type": "date",
             "format": "yyyy-MM-dd",
-            "placeholder": "预计完成时间",
+            "placeholder": "选择时间",
         }
     }, {
         type: "hidden",

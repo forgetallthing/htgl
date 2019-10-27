@@ -58,9 +58,37 @@ function getContractContent(filter, callback) {
     })
 }
 
+function saveContract(filter, callback) {
+    common.service({
+        url: config.api_url + '/sht/',
+        method: 'post',
+        data: filter
+    }).then((res) => {
+        callback(0, res)
+    }, (err) => {
+        console.log(err)
+    })
+}
+
+function exportExcel(filter, callback) {
+    common.service({
+        url: config.api_url + '/export/',
+        method: 'post',
+        data: {
+            htbh: filter.htbh,
+        }
+    }).then((res) => {
+        callback(0, res)
+    }, (err) => {
+        console.log(err)
+    })
+}
+
 module.exports = {
     getContracts,
     addContract,
     delContract,
     getContractContent,
+    saveContract,
+    exportExcel,
 };

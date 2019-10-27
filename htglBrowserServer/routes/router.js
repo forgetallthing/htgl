@@ -24,7 +24,7 @@ const routerMap = {
             // removeTotalCheck: { arg: ["userId", "userLogin", "p"] },
             getKey: {
                 method: 'post',
-                ret: function(req, res, err, r) {
+                ret: function (req, res, err, r) {
                     if (err) {
                         res.send(msg.buildErrMsg(err));
                     } else {
@@ -67,7 +67,10 @@ const routerMap = {
             },
             delContract: {
                 method: 'post'
-            }
+            },
+            exportExcel: {
+                method: 'post'
+            },
         }
     }
 };
@@ -102,7 +105,7 @@ for (let k in routerMap) {
                 rn.arg = ['userId', 'p'];
             }
             (rn => {
-                r[rn.method]('/' + rn.path, function(req, res) {
+                r[rn.method]('/' + rn.path, function (req, res) {
                     if (!req.session) {
                         res.send(
                             msg.buildErrMsg({
@@ -123,15 +126,15 @@ for (let k in routerMap) {
                     arg.push(
                         rn.ret
                             ? (err, r) => {
-                                  rn.ret(req, res, err, r);
-                              }
+                                rn.ret(req, res, err, r);
+                            }
                             : (err, r) => {
-                                  if (err) {
-                                      res.send(msg.buildErrMsg(err));
-                                  } else {
-                                      res.send(msg.buildSuccessMsg(r));
-                                  }
-                              }
+                                if (err) {
+                                    res.send(msg.buildErrMsg(err));
+                                } else {
+                                    res.send(msg.buildSuccessMsg(r));
+                                }
+                            }
                     );
                     rn.manager[rn.funcName](...arg);
                 });
