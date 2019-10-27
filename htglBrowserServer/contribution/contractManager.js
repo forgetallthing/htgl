@@ -177,7 +177,7 @@ let struct = {
             type: "select",
             title: "承接单位",
             field: "cjdw",
-            value: "123",
+            value: "",
             options: [
             ],
             col: {

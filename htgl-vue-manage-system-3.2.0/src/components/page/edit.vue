@@ -45,7 +45,7 @@ export default {
       param: {
         htbh: "ht_001"
       },
-      ms_role: "",
+      ms_role: ""
     };
   },
   mounted() {
@@ -56,7 +56,7 @@ export default {
   methods: {
     init() {
       console.log(this.$route.params);
-    //   this.param = this.$route.params;
+      //   this.param = this.$route.params;
       this.ms_role = localStorage.getItem("ms_role");
       // if(!this.$route.params.col1){
       //   this.$router.go(-1);
@@ -81,6 +81,9 @@ export default {
       );
     },
     saveContractFun(formData) {
+      for (let i in formData) {
+        if (!formData[i]) formData[i] = "";
+      }
       let loadingInstance = this.$loading({ target: ".content" });
       saveContract({
         formData: formData
@@ -119,10 +122,10 @@ export default {
         htbh: this.param.htbh
       }).then(
         res => {
-            console.log(res.value.path)
-            //http://106.13.0.214:8000/static/ht_001.csv
+          console.log(res.value.path);
+          //http://106.13.0.214:8000/static/ht_001.csv
           loadingInstance.close();
-          this.$message.success("保存成功");
+          //   this.$message.success("保存成功");
         },
         error => {
           loadingInstance.close();
