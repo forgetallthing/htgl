@@ -120,6 +120,7 @@ export default {
       }).then(
         res => {
             console.log(res.value.path)
+            //http://106.13.0.214:8000/static/ht_001.csv
           loadingInstance.close();
           this.$message.success("保存成功");
         },
