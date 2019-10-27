@@ -9,6 +9,7 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "@form-create/element-ui": "^1.0.3",
     "axios": "^0.15.3",
     "babel-polyfill": "^6.23.0",
     "element-ui": "^2.4.5",

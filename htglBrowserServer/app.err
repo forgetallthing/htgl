@@ -448,3 +448,137 @@
     at next (e:\test\htgl\htgl\htglBrowserServer\node_modules\express\lib\router\index.js:275:10)
     at Function.handle (e:\test\htgl\htgl\htglBrowserServer\node_modules\express\lib\router\index.js:174:3)
     at router (e:\test\htgl\htgl\htglBrowserServer\node_modules\express\lib\router\index.js:47:12)
+1572153471819	Error: Request failed with status code 500
+    at createError (e:\Workspace2017\code\htglBrowserServer\node_modules\axios\lib\core\createError.js:16:15)
+    at settle (e:\Workspace2017\code\htglBrowserServer\node_modules\axios\lib\core\settle.js:17:12)
+    at IncomingMessage.handleStreamEnd (e:\Workspace2017\code\htglBrowserServer\node_modules\axios\lib\adapters\http.js:237:11)
+    at emitNone (events.js:91:20)
+    at IncomingMessage.emit (events.js:185:7)
+    at endReadableNT (_stream_readable.js:974:12)
+    at _combinedTickCallback (internal/process/next_tick.js:74:11)
+    at process._tickCallback (internal/process/next_tick.js:98:9)
+1572153533068	Error: Request failed with status code 500
+    at createError (e:\Workspace2017\code\htglBrowserServer\node_modules\axios\lib\core\createError.js:16:15)
+    at settle (e:\Workspace2017\code\htglBrowserServer\node_modules\axios\lib\core\settle.js:17:12)
+    at IncomingMessage.handleStreamEnd (e:\Workspace2017\code\htglBrowserServer\node_modules\axios\lib\adapters\http.js:237:11)
+    at emitNone (events.js:91:20)
+    at IncomingMessage.emit (events.js:185:7)
+    at endReadableNT (_stream_readable.js:974:12)
+    at _combinedTickCallback (internal/process/next_tick.js:74:11)
+    at process._tickCallback (internal/process/next_tick.js:98:9)
+1572153571935	Error: Request failed with status code 500
+    at createError (e:\Workspace2017\code\htglBrowserServer\node_modules\axios\lib\core\createError.js:16:15)
+    at settle (e:\Workspace2017\code\htglBrowserServer\node_modules\axios\lib\core\settle.js:17:12)
+    at IncomingMessage.handleStreamEnd (e:\Workspace2017\code\htglBrowserServer\node_modules\axios\lib\adapters\http.js:237:11)
+    at emitNone (events.js:91:20)
+    at IncomingMessage.emit (events.js:185:7)
+    at endReadableNT (_stream_readable.js:974:12)
+    at _combinedTickCallback (internal/process/next_tick.js:74:11)
+    at process._tickCallback (internal/process/next_tick.js:98:9)
+1572153713863	Error: Request failed with status code 500
+    at createError (e:\Workspace2017\code\htglBrowserServer\node_modules\axios\lib\core\createError.js:16:15)
+    at settle (e:\Workspace2017\code\htglBrowserServer\node_modules\axios\lib\core\settle.js:17:12)
+    at IncomingMessage.handleStreamEnd (e:\Workspace2017\code\htglBrowserServer\node_modules\axios\lib\adapters\http.js:237:11)
+    at emitNone (events.js:91:20)
+    at IncomingMessage.emit (events.js:185:7)
+    at endReadableNT (_stream_readable.js:974:12)
+    at _combinedTickCallback (internal/process/next_tick.js:74:11)
+    at process._tickCallback (internal/process/next_tick.js:98:9)
+1572154194183	TypeError: list.map is not a function
+    at e:\Workspace2017\code\htglBrowserServer\contribution\userManager.js:25:21
+    at next (native)
+    at onFulfilled (e:\Workspace2017\code\htglBrowserServer\node_modules\co\index.js:65:19)
+    at process._tickCallback (internal/process/next_tick.js:103:7)
+1572155798203	ReferenceError: result is not defined
+    at e:\Workspace2017\code\htglBrowserServer\contribution\userManager.js:63:13
+    at next (native)
+    at onFulfilled (e:\Workspace2017\code\htglBrowserServer\node_modules\co\index.js:65:19)
+    at process._tickCallback (internal/process/next_tick.js:103:7)
+1572157639728	Error: connect ECONNREFUSED 106.13.0.214:8000
+    at Object.exports._errnoException (util.js:1026:11)
+    at exports._exceptionWithHostPort (util.js:1049:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1085:14)
+1572158156494	Error: connect ECONNREFUSED 106.13.0.214:8000
+    at Object.exports._errnoException (util.js:1026:11)
+    at exports._exceptionWithHostPort (util.js:1049:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1085:14)
+1572158160709	Error: connect ECONNREFUSED 106.13.0.214:8000
+    at Object.exports._errnoException (util.js:1026:11)
+    at exports._exceptionWithHostPort (util.js:1049:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1085:14)
+1572158273373	Error: connect ECONNREFUSED 106.13.0.214:8000
+    at Object.exports._errnoException (util.js:1026:11)
+    at exports._exceptionWithHostPort (util.js:1049:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1085:14)
+1572158286574	Error: connect ECONNREFUSED 106.13.0.214:8000
+    at Object.exports._errnoException (util.js:1026:11)
+    at exports._exceptionWithHostPort (util.js:1049:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1085:14)
+1572158313013	Error: connect ECONNREFUSED 106.13.0.214:8000
+    at Object.exports._errnoException (util.js:1026:11)
+    at exports._exceptionWithHostPort (util.js:1049:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1085:14)
+1572158712852	Error: connect ECONNREFUSED 106.13.0.214:8000
+    at Object.exports._errnoException (util.js:1026:11)
+    at exports._exceptionWithHostPort (util.js:1049:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1085:14)
+1572158888580	Error: connect ECONNREFUSED 106.13.0.214:8000
+    at Object.exports._errnoException (util.js:1026:11)
+    at exports._exceptionWithHostPort (util.js:1049:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1085:14)
+1572158972295	Error: connect ECONNREFUSED 106.13.0.214:8000
+    at Object.exports._errnoException (util.js:1026:11)
+    at exports._exceptionWithHostPort (util.js:1049:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1085:14)
+1572159128355	Error: connect ECONNREFUSED 106.13.0.214:8000
+    at Object.exports._errnoException (util.js:1026:11)
+    at exports._exceptionWithHostPort (util.js:1049:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1085:14)
+1572159170117	Error: connect ECONNREFUSED 106.13.0.214:8000
+    at Object.exports._errnoException (util.js:1026:11)
+    at exports._exceptionWithHostPort (util.js:1049:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1085:14)
+1572159239717	Error: connect ECONNREFUSED 106.13.0.214:8000
+    at Object.exports._errnoException (util.js:1026:11)
+    at exports._exceptionWithHostPort (util.js:1049:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1085:14)
+1572159246231	Error: connect ECONNREFUSED 106.13.0.214:8000
+    at Object.exports._errnoException (util.js:1026:11)
+    at exports._exceptionWithHostPort (util.js:1049:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1085:14)
+1572159261218	Error: connect ECONNREFUSED 106.13.0.214:8000
+    at Object.exports._errnoException (util.js:1026:11)
+    at exports._exceptionWithHostPort (util.js:1049:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1085:14)
+1572159291426	Error: connect ECONNREFUSED 106.13.0.214:8000
+    at Object.exports._errnoException (util.js:1026:11)
+    at exports._exceptionWithHostPort (util.js:1049:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1085:14)
+1572159305713	Error: connect ECONNREFUSED 106.13.0.214:8000
+    at Object.exports._errnoException (util.js:1026:11)
+    at exports._exceptionWithHostPort (util.js:1049:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1085:14)
+1572159324945	Error: connect ECONNREFUSED 106.13.0.214:8000
+    at Object.exports._errnoException (util.js:1026:11)
+    at exports._exceptionWithHostPort (util.js:1049:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1085:14)
+1572159336718	Error: connect ECONNREFUSED 106.13.0.214:8000
+    at Object.exports._errnoException (util.js:1026:11)
+    at exports._exceptionWithHostPort (util.js:1049:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1085:14)
+1572163583531	Error: connect ECONNREFUSED 106.13.0.214:8000
+    at Object.exports._errnoException (util.js:1026:11)
+    at exports._exceptionWithHostPort (util.js:1049:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1085:14)
+1572163589935	Error: connect ECONNREFUSED 106.13.0.214:8000
+    at Object.exports._errnoException (util.js:1026:11)
+    at exports._exceptionWithHostPort (util.js:1049:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1085:14)
+1572163594883	Error: connect ECONNREFUSED 106.13.0.214:8000
+    at Object.exports._errnoException (util.js:1026:11)
+    at exports._exceptionWithHostPort (util.js:1049:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1085:14)
+1572163809671	Error: connect ECONNREFUSED 106.13.0.214:8000
+    at Object.exports._errnoException (util.js:1026:11)
+    at exports._exceptionWithHostPort (util.js:1049:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1085:14)

@@ -43,14 +43,22 @@
                         </el-col>
                         <el-col :hidden="filterHidden.htfhsj" :span="6">
                             <el-form-item label-width="100px" label="合同返回时间:">
-                                <el-date-picker
+                                <el-select v-model="filter.htfhsj" placeholder="请选择">
+                                  <el-option
+                                    v-for="item in options"
+                                    :key="item.value"
+                                    :label="item.label"
+                                    :value="item.value">
+                                  </el-option>
+                                </el-select>
+                                <!-- <el-date-picker
                                     value-format="yyyy-MM-dd"
                                     class="date-picker"
                                     v-model="filter.htfhsj"
                                     type="date"
                                     placeholder="选择日期"
                                 >
-                                </el-date-picker>
+                                </el-date-picker> -->
                             </el-form-item>
                         </el-col>
                         <el-col :span="3" style="text-align:right;">
@@ -72,12 +80,12 @@
                     style="width: 100%"
                     :default-sort="{ prop: 'col1', order: 'descending' }"
                 >
-                    <el-table-column prop="htbh" label="合同编号" sortable></el-table-column>
+                    <el-table-column v-if="!filterHidden.col_htbh" prop="htbh" label="合同编号" sortable></el-table-column>
                     <el-table-column prop="xmmc" label="项目名称" sortable></el-table-column>
                     <el-table-column prop="wtdw" label="委托单位" sortable></el-table-column>
-                    <el-table-column prop="htfcsj" label="合同发出时间" sortable></el-table-column>
-                    <el-table-column prop="htfhsj" label="合同返回时间" sortable></el-table-column>
-                    <el-table-column prop="skjd" label="收款进度" sortable></el-table-column>
+                    <el-table-column v-if="!filterHidden.col_htfcsj" prop="htfcsj" label="合同发出时间" sortable></el-table-column>
+                    <el-table-column v-if="!filterHidden.col_htfhsj" prop="htfhsj" label="合同返回时间" sortable></el-table-column>
+                    <el-table-column v-if="!filterHidden.col_skjd" prop="skjd" label="收款进度" sortable></el-table-column>
                     <el-table-column label="操作" width="150">
                         <template slot-scope="scope">
                             <el-button size="mini" @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
@@ -102,144 +110,178 @@
 </template>
 
 <script>
-import { getContracts, addContract, delContract } from '../../service/dao';
+import { getContracts, addContract, delContract } from "../../service/dao";
 export default {
-    name: 'htList',
-    data: function() {
-        return {
-            tableData: [],
-            tableFilterData: [],
-            tableHeight: window.innerHeight - 229,
-            filter: {},
-            filterHidden: {},
-            ms_role: '',
-            form: {
-                htbh: ''
-            },
-            rules: {
-                htbh: [{ required: true, message: '请输入合同编号', trigger: 'blur' }]
-            },
-            dialogFormVisible: false,
-            formLabelWidth: '120px'
-        };
-    },
-    mounted() {
-        this.init();
-    },
-    methods: {
-        init() {
-            this.ms_role = localStorage.getItem('ms_role');
-            if (this.ms_role === 'input') {
-                this.filterHidden = {
-                    wtdw: true,
-                    htfcsj: true,
-                    htfhsj: true,
-                    skjd: true
-                };
-            }
-            if (this.ms_role === 'worker') {
-                this.filterHidden = {
-                    htbh: true,
-                    wtdw: true,
-                    htfcsj: true,
-                    htfhsj: true,
-                    skjd: true
-                };
-            }
-            let loadingInstance = this.$loading({ target: '.content' });
-            getContracts({}).then(
-                res => {
-                    loadingInstance.close();
-                    this.tableData = res.value.contracts;
-                    this.search();
-                },
-                error => {
-                    loadingInstance.close();
-                }
-            );
-            loadingInstance.close();
+  name: "htList",
+  data: function() {
+    return {
+      tableData: [],
+      tableFilterData: [],
+      tableHeight: window.innerHeight - 229,
+      filter: {
+        htfhsj: "全部"
+      },
+      filterHidden: {
+        col_htbh: false,
+        col_htfcsj: false,
+        col_htfhsj: false,
+        col_skjd: false
+      },
+      ms_role: "",
+      form: {
+        htbh: ""
+      },
+      rules: {
+        htbh: [{ required: true, message: "请输入合同编号", trigger: "blur" }]
+      },
+      dialogFormVisible: false,
+      formLabelWidth: "120px",
+      options: [
+        {
+          label: "全部",
+          value: "全部"
         },
-        search() {
-            var result = this.tableData.filter(v => {
-                var flag = true;
-                if (this.filter.htbh && v.htbh.indexOf(this.filter.htbh) === -1) return false;
-                if (this.filter.xmmc && v.xmmc.indexOf(this.filter.xmmc) === -1) return false;
-                if (this.filter.wtdw && v.wtdw.indexOf(this.filter.wtdw) === -1) return false;
-                if (this.filter.skjd && v.skjd.indexOf(this.filter.skjd) === -1) return false;
-                if (this.filter.htfhsj && v.htfhsj !== this.filter.htfhsj) return false;
-                if (this.filter.startTime && v.htfcsj <= this.filter.startTime) return false;
-                if (this.filter.endTime && v.htfcsj >= this.filter.endTime) return false;
-                return true;
-            });
-            this.tableFilterData = result;
+        {
+          label: "已返回",
+          value: "已返回"
         },
-        showCard() {
-            this.dialogFormVisible = true;
-        },
-        newBuild() {
-            let loadingInstance = this.$loading({ target: '.content' });
-            addContract({
-                htbh: this.form.htbh
-            }).then(
-                res => {
-                    loadingInstance.close();
-                    this.$message.success('新建成功');
-                    this.form.htbh = '';
-                    this.init();
-                },
-                error => {
-                    loadingInstance.close();
-                }
-            );
-        },
-        submitForm(formName) {
-            this.$refs[formName].validate(valid => {
-                if (valid) {
-                    this.newBuild();
-                } else {
-                    console.log('error submit!!');
-                    return false;
-                }
-            });
-        },
-        handleEdit(index, row) {
-            this.$router.push({
-                name: 'edit',
-                params: {
-                    htbh: row.htbh
-                }
-            });
-        },
-        handleDelete(index, row) {
-            this.$confirm('确认删除？')
-                .then(_ => {
-                    let loadingInstance = this.$loading({ target: '.content' });
-                    delContract({
-                        col1: row.col1
-                    }).then(
-                        res => {
-                            loadingInstance.close();
-                            this.$message.success('删除成功');
-                            this.init();
-                        },
-                        error => {
-                            loadingInstance.close();
-                        }
-                    );
-                })
-                .catch(_ => {});
+        {
+          label: "未返回",
+          value: "未返回"
         }
+      ]
+    };
+  },
+  mounted() {
+    this.init();
+  },
+  methods: {
+    init() {
+      this.ms_role = localStorage.getItem("ms_role");
+      this.ms_role ="input"
+      if (this.ms_role === "input") {
+        this.filterHidden = {
+          wtdw: true,
+          htfcsj: true,
+          htfhsj: true,
+          skjd: true,
+          col_skjd: true
+        };
+      }
+      if (this.ms_role === "worker") {
+        this.filterHidden = {
+          htbh: true,
+          wtdw: true,
+          htfcsj: true,
+          htfhsj: true,
+          skjd: true,
+          col_htbh: true,
+          col_htfcsj: true,
+          col_htfhsj: true,
+          col_skjd: true,
+        };
+      }
+      let loadingInstance = this.$loading({ target: ".content" });
+      getContracts({}).then(
+        res => {
+          loadingInstance.close();
+          this.tableData = res.value.contracts;
+          this.search();
+        },
+        error => {
+          loadingInstance.close();
+        }
+      );
+      loadingInstance.close();
+    },
+    search() {
+      var result = this.tableData.filter(v => {
+        var flag = true;
+        if (this.filter.htbh && v.htbh.indexOf(this.filter.htbh) === -1)
+          return false;
+        if (this.filter.xmmc && v.xmmc.indexOf(this.filter.xmmc) === -1)
+          return false;
+        if (this.filter.wtdw && v.wtdw.indexOf(this.filter.wtdw) === -1)
+          return false;
+        if (this.filter.skjd && v.skjd.indexOf(this.filter.skjd) === -1)
+          return false;
+        if (this.filter.htfhsj === "已返回" && !v.htfhsj) return false;
+        if (this.filter.htfhsj === "未返回" && v.htfhsj) return false;
+        if (this.filter.startTime && v.htfcsj <= this.filter.startTime)
+          return false;
+        if (this.filter.endTime && v.htfcsj >= this.filter.endTime)
+          return false;
+        return true;
+      });
+      this.tableFilterData = result;
+    },
+    showCard() {
+      this.dialogFormVisible = true;
+    },
+    newBuild() {
+      let loadingInstance = this.$loading({ target: ".content" });
+      addContract({
+        htbh: this.form.htbh
+      }).then(
+        res => {
+          loadingInstance.close();
+          this.$message.success("新建成功");
+          this.form.htbh = "";
+          this.init();
+        },
+        error => {
+          loadingInstance.close();
+        }
+      );
+    },
+    submitForm(formName) {
+      this.$refs[formName].validate(valid => {
+        if (valid) {
+          this.newBuild();
+        } else {
+          console.log("error submit!!");
+          return false;
+        }
+      });
+    },
+    handleEdit(index, row) {
+      this.$router.push({
+        name: "edit",
+        params: {
+          htbh: row.htbh
+        }
+      });
+    },
+    handleDelete(index, row) {
+      this.$confirm("确认删除？")
+        .then(_ => {
+          let loadingInstance = this.$loading({ target: ".content" });
+          delContract({
+            col1: row.col1
+          }).then(
+            res => {
+              loadingInstance.close();
+              this.$message.success("删除成功");
+              this.init();
+            },
+            error => {
+              loadingInstance.close();
+            }
+          );
+        })
+        .catch(_ => {});
     }
+  }
 };
 </script>
 <style></style>
 
 <style scoped>
 .date-picker {
-    width: 100%;
+  width: 100%;
 }
 .el-col,
 .el-row {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 </style>

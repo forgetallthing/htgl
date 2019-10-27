@@ -6,8 +6,8 @@ const Config = {
     DB_USER: "adminUser",
     DB_PW: "adminPass",
     errLog: "../app.err",
-    //api_url: "http://ntp.fujutime.cn:8001",
-    api_url: "http://127.0.0.1:8001",
+    api_url: "http://106.13.0.214:8000",
+    // api_url: "http://127.0.0.1:8001",
 };
 
 module.exports = Config;

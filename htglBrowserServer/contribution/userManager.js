@@ -20,18 +20,15 @@ function userLogin(userId, p, callback) {
 
 function getUserList(userId, p, callback) {
     co(function* () {
-        callback(0, {
-            users: [{
-                userName:"admin",
-                role:"admin"
-            },{
-                userName:"Jackey",
-                role:"normal"
-            },{
-                userName:"Rock",
-                role:"normal"
-            },]
-        });
+        let list = yield common.toPromise(userDao.getUserList, {})
+        list.users = list.users || [];
+        list.users = list.users.map((v) => {
+            return {
+                userName: v[0],
+                role: v[2]
+            }
+        })
+        callback(0, list);
     }).catch(function (err) {
         callback(err);
     });
@@ -39,7 +36,14 @@ function getUserList(userId, p, callback) {
 
 function addUser(userId, p, callback) {
     co(function* () {
-        callback(0, {});
+        let result = yield common.toPromise(userDao.addUser, { uname: p.userName, type: p.role })
+        if (result.desc === "账号添加成功!") {
+            callback(0, {
+                msg: result.desc
+            });
+        } else {
+            callback(result.desc);
+        }
     }).catch(function (err) {
         callback(err);
     });
@@ -55,7 +59,14 @@ function resetPW(userId, p, callback) {
 
 function delUser(userId, p, callback) {
     co(function* () {
-        callback(0, {});
+        let result = yield common.toPromise(userDao.delUser, { uname: p.userName, type: p.role })
+        if (result.desc === "删除成功!") {
+            callback(0, {
+                msg: result.desc
+            });
+        } else {
+            callback(result.desc);
+        }
     }).catch(function (err) {
         callback(err);
     });

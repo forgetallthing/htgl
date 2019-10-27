@@ -71,7 +71,7 @@ a {
 }
 
 .el-button:focus {
-    color: #2967bc;
+    /* color: #2967bc; */
 }
 
 .el-table tr:hover {

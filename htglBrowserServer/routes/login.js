@@ -38,7 +38,7 @@ router.post('/login', function(req, res) {
                     res.send(
                         msg.buildSuccessMsg({
                             uid: p.loginName,
-                            role: r.role
+                            role: r.type
                         })
                     );
                 }
