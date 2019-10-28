@@ -51,8 +51,8 @@ export default {
     return {
       key: "",
       ruleForm: {
-        username: "admin",
-        password: "admin"
+        username: "",
+        password: ""
       },
       rules: {
         username: [

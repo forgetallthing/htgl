@@ -274,12 +274,8 @@ export default {
   }
 };
 </script>
-<style></style>
 
 <style scoped>
-.date-picker {
-  width: 100%;
-}
 .el-col,
 .el-row {
   margin-bottom: 0;
