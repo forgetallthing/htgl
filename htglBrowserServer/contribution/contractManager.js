@@ -186,6 +186,7 @@ let struct = {
             props: {
                 filterable: true,
                 disabled: false,
+                allowCreate:true
             },
         }, {
             type: "select",
@@ -200,6 +201,7 @@ let struct = {
             props: {
                 filterable: true,
                 disabled: false,
+                allowCreate:true
             },
         }, {
             type: "input",
@@ -250,6 +252,7 @@ let struct = {
             props: {
                 filterable: true,
                 disabled: false,
+                allowCreate:true
             },
         }, {
             type: "DatePicker",
@@ -276,6 +279,7 @@ let struct = {
             },
             props: {
                 filterable: true,
+                allowCreate:true
             },
         }, {
             type: "select",
@@ -289,6 +293,7 @@ let struct = {
             },
             props: {
                 filterable: true,
+                allowCreate:true
             },
         }, {
             type: "input",
@@ -339,6 +344,7 @@ let struct = {
             },
             props: {
                 filterable: true,
+                allowCreate:true
             },
         }, {
             type: "select",
@@ -352,6 +358,7 @@ let struct = {
             },
             props: {
                 filterable: true,
+                allowCreate:true
             },
         }, {
             type: "DatePicker",
@@ -596,6 +603,7 @@ let struct = {
             },
             props: {
                 filterable: true,
+                allowCreate:true
             },
         }, {
             type: "input",
@@ -634,6 +642,7 @@ let struct = {
             },
             props: {
                 filterable: true,
+                allowCreate:true
             },
         }, {
             type: "select",
@@ -648,6 +657,7 @@ let struct = {
             },
             props: {
                 filterable: true,
+                allowCreate:true
             },
         }, {
             type: "select",
@@ -662,6 +672,7 @@ let struct = {
             },
             props: {
                 filterable: true,
+                allowCreate:true
             },
         }, {
             type: "DatePicker",
@@ -723,6 +734,7 @@ let struct = {
         },
         props: {
             filterable: true,
+            allowCreate:true,
             disabled: false,
         },
     }, {
@@ -737,6 +749,7 @@ let struct = {
         },
         props: {
             filterable: true,
+            allowCreate:true,
             disabled: false,
         },
     }, {
@@ -788,6 +801,7 @@ let struct = {
         props: {
             filterable: true,
             disabled: false,
+            allowCreate:true
         },
     }, {
         type: "DatePicker",
@@ -815,6 +829,7 @@ let struct = {
         },
         props: {
             filterable: true,
+            allowCreate:true
         },
     }, {
         type: "select",
@@ -829,6 +844,7 @@ let struct = {
         },
         props: {
             filterable: true,
+            allowCreate:true
         },
     }, {
         type: "input",
@@ -881,6 +897,7 @@ let struct = {
         props: {
             filterable: true,
             disabled: true,
+            allowCreate:true
         },
     }, {
         type: "select",
@@ -896,6 +913,7 @@ let struct = {
         props: {
             filterable: true,
             disabled: true,
+            allowCreate:true
         },
     }, {
         type: "DatePicker",
@@ -1161,6 +1179,7 @@ let struct = {
         props: {
             filterable: true,
             disabled: true,
+            allowCreate:true
         },
     }, {
         type: "input",
@@ -1200,6 +1219,7 @@ let struct = {
         },
         props: {
             filterable: true,
+            allowCreate:true
         },
     }, {
         type: "hidden",
@@ -1214,6 +1234,7 @@ let struct = {
         },
         props: {
             filterable: true,
+            allowCreate:true
         },
     }, {
         type: "hidden",
@@ -1228,6 +1249,7 @@ let struct = {
         },
         props: {
             filterable: true,
+            allowCreate:true
         },
     }, {
         type: "hidden",
@@ -1289,6 +1311,7 @@ let struct = {
         props: {
             filterable: true,
             disabled: false,
+            allowCreate:true
         },
     }, {
         type: "hidden",
@@ -1303,6 +1326,7 @@ let struct = {
         props: {
             filterable: true,
             disabled: false,
+            allowCreate:true
         },
     }, {
         type: "hidden",
@@ -1353,6 +1377,7 @@ let struct = {
         props: {
             filterable: true,
             disabled: false,
+            allowCreate:true
         },
     }, {
         type: "DatePicker",
@@ -1380,6 +1405,7 @@ let struct = {
         },
         props: {
             filterable: true,
+            allowCreate:true
         },
     }, {
         type: "select",
@@ -1394,6 +1420,7 @@ let struct = {
         },
         props: {
             filterable: true,
+            allowCreate:true
         },
     }, {
         type: "input",
@@ -1445,6 +1472,7 @@ let struct = {
         },
         props: {
             filterable: true,
+            allowCreate:true
         },
     }, {
         type: "select",
@@ -1459,6 +1487,7 @@ let struct = {
         },
         props: {
             filterable: true,
+            allowCreate:true
         },
     }, {
         type: "DatePicker",
@@ -1703,6 +1732,7 @@ let struct = {
         },
         props: {
             filterable: true,
+            allowCreate:true
         },
     }, {
         type: "hidden",
@@ -1741,6 +1771,7 @@ let struct = {
         },
         props: {
             filterable: true,
+            allowCreate:true
         },
     }, {
         type: "hidden",
@@ -1755,6 +1786,7 @@ let struct = {
         },
         props: {
             filterable: true,
+            allowCreate:true
         },
     }, {
         type: "hidden",
@@ -1769,6 +1801,7 @@ let struct = {
         },
         props: {
             filterable: true,
+            allowCreate:true
         },
     }, {
         type: "hidden",
