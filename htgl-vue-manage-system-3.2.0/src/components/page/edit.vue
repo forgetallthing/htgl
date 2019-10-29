@@ -4,7 +4,7 @@
             <el-col :span="12">
                 <el-button type="primary" icon="el-icon-back" size="mini" @click="back()">返回</el-button>
             </el-col>
-            <el-col :hidden="!(ms_role === 'admin')" :span="12" style="text-align:end">
+            <el-col :hidden="!(ms_role === 'admin' || ms_role === 'finance')" :span="12" style="text-align:end">
                 <el-button type="primary" icon="el-icon-download" size="mini" @click="exportTable()">导出excel</el-button>
             </el-col>
             <el-col>
@@ -26,7 +26,7 @@ export default {
             option: {
                 form: {
                     labelPosition: 'left',
-                    labelWidth: '100px'
+                    labelWidth: '100px',
                 },
                 row: {
                     gutter: 10

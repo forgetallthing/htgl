@@ -88,6 +88,7 @@ function getContractContent(userId, p, callback) {
         };
         if (p.role === 'input') res.struct = struct.input;
         if (p.role === 'worker') res.struct = struct.worker;
+        if (p.role === 'finance') res.struct = struct.cw;
 
         for (let i = 0; i < res.struct.length; i++) {
             if (res.struct[i].type == 'select') {
@@ -373,6 +374,24 @@ let struct = {
             }
         },
         {
+            type: 'select',
+            title: '项目进度',
+            field: 'xmjd',
+            value: '未开始',
+            options: [
+                {"value": "未开始", "label": "未开始"},
+                {"value": "进行中", "label": "进行中"},
+                {"value": "已完成", "label": "已完成"},
+            ],
+            col: {
+                span: 24
+            },
+            props: {
+                filterable: true,
+                disabled: true,
+            }
+        },
+        {
             type: 'DatePicker',
             field: 'wyzysj1',
             title: '外业作业时间',
@@ -388,23 +407,12 @@ let struct = {
         },
         {
             type: 'input',
-            title: '外业作业内容',
+            title: '外业作业内容及工作量',
             field: 'wyzynr1',
             value: '',
             col: {
-                span: 6
-            },
-            props: {
-                type: 'text'
-            }
-        },
-        {
-            type: 'input',
-            title: '外业工作量',
-            field: 'wygzl1',
-            value: '',
-            col: {
-                span: 6
+                span: 12,
+                labelWidth: '155px',
             },
             props: {
                 type: 'text'
@@ -438,23 +446,12 @@ let struct = {
         },
         {
             type: 'input',
-            title: '外业作业内容',
+            title: '外业作业内容及工作量',
             field: 'wyzynr2',
             value: '',
             col: {
-                span: 6
-            },
-            props: {
-                type: 'text'
-            }
-        },
-        {
-            type: 'input',
-            title: '外业工作量',
-            field: 'wygzl2',
-            value: '',
-            col: {
-                span: 6
+                span: 12,
+                labelWidth: '155px',
             },
             props: {
                 type: 'text'
@@ -488,23 +485,12 @@ let struct = {
         },
         {
             type: 'input',
-            title: '外业作业内容',
+            title: '外业作业内容及工作量',
             field: 'wyzynr3',
             value: '',
             col: {
-                span: 6
-            },
-            props: {
-                type: 'text'
-            }
-        },
-        {
-            type: 'input',
-            title: '外业工作量',
-            field: 'wygzl3',
-            value: '',
-            col: {
-                span: 6
+                span: 12,
+                labelWidth: '155px',
             },
             props: {
                 type: 'text'
@@ -538,23 +524,12 @@ let struct = {
         },
         {
             type: 'input',
-            title: '外业作业内容',
+            title: '外业作业内容及工作量',
             field: 'wyzynr4',
             value: '',
             col: {
-                span: 6
-            },
-            props: {
-                type: 'text'
-            }
-        },
-        {
-            type: 'input',
-            title: '外业工作量',
-            field: 'wygzl4',
-            value: '',
-            col: {
-                span: 6
+                span: 12,
+                labelWidth: '155px',
             },
             props: {
                 type: 'text'
@@ -588,23 +563,12 @@ let struct = {
         },
         {
             type: 'input',
-            title: '内业作业内容',
+            title: '内业作业内容及工作量',
             field: 'nyzynr',
             value: '',
             col: {
-                span: 6
-            },
-            props: {
-                type: 'text'
-            }
-        },
-        {
-            type: 'input',
-            title: '内业工作量',
-            field: 'nygzl',
-            value: '',
-            col: {
-                span: 6
+                span: 12,
+                labelWidth: '155px',
             },
             props: {
                 type: 'text'
@@ -796,7 +760,7 @@ let struct = {
             },
             props: {
                 type: 'text',
-                disabled: true
+                disabled: false
             }
         },
         {
@@ -933,7 +897,7 @@ let struct = {
             },
             props: {
                 filterable: true,
-                disabled: true,
+                disabled: false,
                 allowCreate: true
             }
         },
@@ -948,8 +912,26 @@ let struct = {
             },
             props: {
                 filterable: true,
-                disabled: true,
+                disabled: false,
                 allowCreate: true
+            }
+        },
+        {
+            type: 'select',
+            title: '项目进度',
+            field: 'xmjd',
+            value: '未开始',
+            options: [
+                {"value": "未开始", "label": "未开始"},
+                {"value": "进行中", "label": "进行中"},
+                {"value": "已完成", "label": "已完成"},
+            ],
+            col: {
+                span: 24
+            },
+            props: {
+                filterable: true,
+                disabled: true,
             }
         },
         {
@@ -969,24 +951,12 @@ let struct = {
         },
         {
             type: 'input',
-            title: '外业作业内容',
+            title: '外业作业内容及工作量',
             field: 'wyzynr1',
             value: '',
             col: {
-                span: 6
-            },
-            props: {
-                type: 'text',
-                disabled: true
-            }
-        },
-        {
-            type: 'input',
-            title: '外业工作量',
-            field: 'wygzl1',
-            value: '',
-            col: {
-                span: 6
+                span: 12,
+                labelWidth: '155px',
             },
             props: {
                 type: 'text',
@@ -1023,24 +993,12 @@ let struct = {
         },
         {
             type: 'input',
-            title: '外业作业内容',
+            title: '外业作业内容及工作量',
             field: 'wyzynr2',
             value: '',
             col: {
-                span: 6
-            },
-            props: {
-                type: 'text',
-                disabled: true
-            }
-        },
-        {
-            type: 'input',
-            title: '外业工作量',
-            field: 'wygzl2',
-            value: '',
-            col: {
-                span: 6
+                span: 12,
+                labelWidth: '155px',
             },
             props: {
                 type: 'text',
@@ -1077,24 +1035,12 @@ let struct = {
         },
         {
             type: 'input',
-            title: '外业作业内容',
+            title: '外业作业内容及工作量',
             field: 'wyzynr3',
             value: '',
             col: {
-                span: 6
-            },
-            props: {
-                type: 'text',
-                disabled: true
-            }
-        },
-        {
-            type: 'input',
-            title: '外业工作量',
-            field: 'wygzl3',
-            value: '',
-            col: {
-                span: 6
+                span: 12,
+                labelWidth: '155px',
             },
             props: {
                 type: 'text',
@@ -1131,24 +1077,12 @@ let struct = {
         },
         {
             type: 'input',
-            title: '外业作业内容',
+            title: '外业作业内容及工作量',
             field: 'wyzynr4',
             value: '',
             col: {
-                span: 6
-            },
-            props: {
-                type: 'text',
-                disabled: true
-            }
-        },
-        {
-            type: 'input',
-            title: '外业工作量',
-            field: 'wygzl4',
-            value: '',
-            col: {
-                span: 6
+                span: 12,
+                labelWidth: '155px',
             },
             props: {
                 type: 'text',
@@ -1185,24 +1119,12 @@ let struct = {
         },
         {
             type: 'input',
-            title: '内业作业内容',
+            title: '内业作业内容及工作量',
             field: 'nyzynr',
             value: '',
             col: {
-                span: 6
-            },
-            props: {
-                type: 'text',
-                disabled: true
-            }
-        },
-        {
-            type: 'input',
-            title: '内业工作量',
-            field: 'nygzl',
-            value: '',
-            col: {
-                span: 6
+                span: 12,
+                labelWidth: '155px',
             },
             props: {
                 type: 'text',
@@ -1223,7 +1145,7 @@ let struct = {
             }
         },
         {
-            type: 'select',
+            type: 'hidden',
             title: '项目结算方式',
             field: 'xmjsfs',
             value: '',
@@ -1238,7 +1160,7 @@ let struct = {
             }
         },
         {
-            type: 'input',
+            type: 'hidden',
             title: '结算金额',
             field: 'jsje',
             value: '',
@@ -1256,7 +1178,7 @@ let struct = {
             title: '归档时间',
             value: '',
             col: {
-                span: 6
+                span: 24
             },
             props: {
                 type: 'date',
@@ -1424,7 +1346,8 @@ let struct = {
                 span: 12
             },
             props: {
-                type: 'text'
+                type: 'text',
+                disabled: true,
             }
         },
         {
@@ -1434,16 +1357,16 @@ let struct = {
             value: '',
             options: [],
             col: {
-                span: 6
+                span: 12
             },
             props: {
                 filterable: true,
-                disabled: false,
+                disabled: true,
                 allowCreate: true
             }
         },
         {
-            type: 'DatePicker',
+            type: 'hidden',
             field: 'htfhsj',
             title: '合同返回时间',
             value: '',
@@ -1467,7 +1390,8 @@ let struct = {
             },
             props: {
                 filterable: true,
-                allowCreate: true
+                allowCreate: true,
+                disabled: true,
             }
         },
         {
@@ -1481,11 +1405,12 @@ let struct = {
             },
             props: {
                 filterable: true,
-                allowCreate: true
+                allowCreate: true,
+                disabled: true,
             }
         },
         {
-            type: 'input',
+            type: 'hidden',
             title: '预算金额',
             field: 'ysje',
             value: '',
@@ -1507,7 +1432,8 @@ let struct = {
             props: {
                 type: 'date',
                 format: 'yyyy-MM-dd',
-                placeholder: '项目开始时间'
+                placeholder: '项目开始时间',
+                disabled: true,
             }
         },
         {
@@ -1516,12 +1442,13 @@ let struct = {
             title: '预计完成时间',
             value: '',
             col: {
-                span: 6
+                span: 12
             },
             props: {
                 type: 'date',
                 format: 'yyyy-MM-dd',
-                placeholder: '选择时间'
+                placeholder: '选择时间',
+                disabled: true,
             }
         },
         {
@@ -1535,7 +1462,8 @@ let struct = {
             },
             props: {
                 filterable: true,
-                allowCreate: true
+                allowCreate: true,
+                disabled: true,
             }
         },
         {
@@ -1549,7 +1477,26 @@ let struct = {
             },
             props: {
                 filterable: true,
-                allowCreate: true
+                allowCreate: true,
+                disabled: true,
+            }
+        },
+        {
+            type: 'select',
+            title: '项目进度',
+            field: 'xmjd',
+            value: '未开始',
+            options: [
+                {"value": "未开始", "label": "未开始"},
+                {"value": "进行中", "label": "进行中"},
+                {"value": "已完成", "label": "已完成"},
+            ],
+            col: {
+                span: 24
+            },
+            props: {
+                filterable: true,
+                disabled: false,
             }
         },
         {
@@ -1568,23 +1515,12 @@ let struct = {
         },
         {
             type: 'input',
-            title: '外业作业内容',
+            title: '外业作业内容及工作量',
             field: 'wyzynr1',
             value: '',
             col: {
-                span: 6
-            },
-            props: {
-                type: 'text'
-            }
-        },
-        {
-            type: 'input',
-            title: '外业工作量',
-            field: 'wygzl1',
-            value: '',
-            col: {
-                span: 6
+                span: 12,
+                labelWidth: '155px',
             },
             props: {
                 type: 'text'
@@ -1618,23 +1554,12 @@ let struct = {
         },
         {
             type: 'input',
-            title: '外业作业内容',
+            title: '外业作业内容及工作量',
             field: 'wyzynr2',
             value: '',
             col: {
-                span: 6
-            },
-            props: {
-                type: 'text'
-            }
-        },
-        {
-            type: 'input',
-            title: '外业工作量',
-            field: 'wygzl2',
-            value: '',
-            col: {
-                span: 6
+                span: 12,
+                labelWidth: '155px',
             },
             props: {
                 type: 'text'
@@ -1668,23 +1593,12 @@ let struct = {
         },
         {
             type: 'input',
-            title: '外业作业内容',
+            title: '外业作业内容及工作量',
             field: 'wyzynr3',
             value: '',
             col: {
-                span: 6
-            },
-            props: {
-                type: 'text'
-            }
-        },
-        {
-            type: 'input',
-            title: '外业工作量',
-            field: 'wygzl3',
-            value: '',
-            col: {
-                span: 6
+                span: 12,
+                labelWidth: '155px',
             },
             props: {
                 type: 'text'
@@ -1718,23 +1632,12 @@ let struct = {
         },
         {
             type: 'input',
-            title: '外业作业内容',
+            title: '外业作业内容及工作量',
             field: 'wyzynr4',
             value: '',
             col: {
-                span: 6
-            },
-            props: {
-                type: 'text'
-            }
-        },
-        {
-            type: 'input',
-            title: '外业工作量',
-            field: 'wygzl4',
-            value: '',
-            col: {
-                span: 6
+                span: 12,
+                labelWidth: '155px',
             },
             props: {
                 type: 'text'
@@ -1768,23 +1671,12 @@ let struct = {
         },
         {
             type: 'input',
-            title: '内业作业内容',
+            title: '内业作业内容及工作量',
             field: 'nyzynr',
             value: '',
             col: {
-                span: 6
-            },
-            props: {
-                type: 'text'
-            }
-        },
-        {
-            type: 'input',
-            title: '内业工作量',
-            field: 'nygzl',
-            value: '',
-            col: {
-                span: 6
+                span: 12,
+                labelWidth: '155px',
             },
             props: {
                 type: 'text'
@@ -1912,6 +1804,566 @@ let struct = {
         },
         {
             type: 'hidden',
+            title: '合同概要',
+            field: 'htgy',
+            value: '',
+            col: {
+                span: 24
+            },
+            props: {
+                type: 'textarea'
+            }
+        },
+        {
+            type: 'input',
+            title: '备注',
+            field: 'bz',
+            value: '',
+            col: {
+                span: 24
+            },
+            props: {
+                type: 'textarea',
+                disabled: true,
+            }
+        }
+    ],
+    cw: [
+        {
+            type: 'select',
+            title: '承接单位',
+            field: 'cjdw',
+            value: '',
+            options: [],
+            col: {
+                span: 6
+            },
+            props: {
+                filterable: true,
+                disabled: false,
+                allowCreate: true
+            }
+        },
+        {
+            type: 'select',
+            title: '合同类型',
+            field: 'htlx',
+            value: '',
+            options: [],
+            col: {
+                span: 6
+            },
+            props: {
+                filterable: true,
+                disabled: false,
+                allowCreate: true
+            }
+        },
+        {
+            type: 'input',
+            title: '合同编号',
+            field: 'htbh',
+            value: '',
+            col: {
+                span: 6
+            },
+            props: {
+                type: 'text',
+                disabled: true
+            }
+        },
+        {
+            type: 'DatePicker',
+            field: 'htfcsj',
+            title: '合同发出时间',
+            value: '',
+            col: {
+                span: 6
+            },
+            props: {
+                type: 'date',
+                format: 'yyyy-MM-dd',
+                placeholder: '合同发出时间',
+                disabled: true,
+            }
+        },
+        {
+            type: 'input',
+            title: '项目名称',
+            field: 'xmmc',
+            value: '',
+            col: {
+                span: 12
+            },
+            props: {
+                type: 'text'
+            }
+        },
+        {
+            type: 'select',
+            title: '作业部门',
+            field: 'zybm',
+            value: '',
+            options: [],
+            col: {
+                span: 6
+            },
+            props: {
+                filterable: true,
+                disabled: false,
+                allowCreate: true
+            }
+        },
+        {
+            type: 'DatePicker',
+            field: 'htfhsj',
+            title: '合同返回时间',
+            value: '',
+            col: {
+                span: 6
+            },
+            props: {
+                type: 'date',
+                format: 'yyyy-MM-dd',
+                placeholder: '合同返回时间',
+                disabled: true,
+            }
+        },
+        {
+            type: 'select',
+            title: '委托单位',
+            field: 'wtdw',
+            value: '',
+            options: [],
+            col: {
+                span: 12
+            },
+            props: {
+                filterable: true,
+                allowCreate: true
+            }
+        },
+        {
+            type: 'select',
+            title: '联系人及电话',
+            field: 'lxrjdh',
+            value: '',
+            options: [],
+            col: {
+                span: 6
+            },
+            props: {
+                filterable: true,
+                allowCreate: true
+            }
+        },
+        {
+            type: 'input',
+            title: '预算金额',
+            field: 'ysje',
+            value: '',
+            col: {
+                span: 6
+            },
+            props: {
+                type: 'text'
+            }
+        },
+        {
+            type: 'DatePicker',
+            field: 'xmkssj',
+            title: '项目开始时间',
+            value: '',
+            col: {
+                span: 6
+            },
+            props: {
+                type: 'date',
+                format: 'yyyy-MM-dd',
+                placeholder: '项目开始时间'
+            }
+        },
+        {
+            type: 'DatePicker',
+            field: 'yjwcsj',
+            title: '预计完成时间',
+            value: '',
+            col: {
+                span: 6
+            },
+            props: {
+                type: 'date',
+                format: 'yyyy-MM-dd',
+                placeholder: '选择时间'
+            }
+        },
+        {
+            type: 'select',
+            title: '项目负责人',
+            field: 'xmfzr',
+            value: '',
+            options: [],
+            col: {
+                span: 6
+            },
+            props: {
+                filterable: true,
+                allowCreate: true
+            }
+        },
+        {
+            type: 'select',
+            title: '项目成员',
+            field: 'xmcy',
+            value: '',
+            options: [],
+            col: {
+                span: 6
+            },
+            props: {
+                filterable: true,
+                allowCreate: true
+            }
+        },
+        {
+            type: 'select',
+            title: '项目进度',
+            field: 'xmjd',
+            value: '未开始',
+            options: [
+                {"value": "未开始", "label": "未开始"},
+                {"value": "进行中", "label": "进行中"},
+                {"value": "已完成", "label": "已完成"},
+            ],
+            col: {
+                span: 24
+            },
+            props: {
+                filterable: true,
+                disabled: true,
+            }
+        },
+        {
+            type: 'DatePicker',
+            field: 'wyzysj1',
+            title: '外业作业时间',
+            value: '',
+            col: {
+                span: 6
+            },
+            props: {
+                type: 'date',
+                format: 'yyyy-MM-dd',
+                placeholder: '选择时间',
+                disabled: true,
+            }
+        },
+        {
+            type: 'input',
+            title: '外业作业内容及工作量',
+            field: 'wyzynr1',
+            value: '',
+            col: {
+                span: 12,
+                labelWidth: '155px',
+            },
+            props: {
+                type: 'text',
+                disabled: true,
+            }
+        },
+        {
+            type: 'input',
+            title: '作业人员',
+            field: 'wyzyry1',
+            value: '',
+            col: {
+                span: 6
+            },
+            props: {
+                type: 'text',
+                disabled: true,
+            }
+        },
+        {
+            type: 'DatePicker',
+            field: 'wyzysj2',
+            title: '外业作业时间',
+            value: '',
+            col: {
+                span: 6
+            },
+            props: {
+                type: 'date',
+                format: 'yyyy-MM-dd',
+                placeholder: '选择时间',
+                disabled: true,
+            }
+        },
+        {
+            type: 'input',
+            title: '外业作业内容及工作量',
+            field: 'wyzynr2',
+            value: '',
+            col: {
+                span: 12,
+                labelWidth: '155px',
+            },
+            props: {
+                type: 'text',
+                disabled: true,
+            }
+        },
+        {
+            type: 'input',
+            title: '作业人员',
+            field: 'wyzyry2',
+            value: '',
+            col: {
+                span: 6
+            },
+            props: {
+                type: 'text',
+                disabled: true,
+            }
+        },
+        {
+            type: 'DatePicker',
+            field: 'wyzysj3',
+            title: '外业作业时间',
+            value: '',
+            col: {
+                span: 6
+            },
+            props: {
+                type: 'date',
+                format: 'yyyy-MM-dd',
+                placeholder: '选择时间',
+                disabled: true,
+            }
+        },
+        {
+            type: 'input',
+            title: '外业作业内容及工作量',
+            field: 'wyzynr3',
+            value: '',
+            col: {
+                span: 12,
+                labelWidth: '155px',
+            },
+            props: {
+                type: 'text',
+                disabled: true,
+            }
+        },
+        {
+            type: 'input',
+            title: '作业人员',
+            field: 'wyzyry3',
+            value: '',
+            col: {
+                span: 6
+            },
+            props: {
+                type: 'text',
+                disabled: true,
+            }
+        },
+        {
+            type: 'DatePicker',
+            field: 'wyzysj4',
+            title: '外业作业时间',
+            value: '',
+            col: {
+                span: 6
+            },
+            props: {
+                type: 'date',
+                format: 'yyyy-MM-dd',
+                placeholder: '选择时间',
+                disabled: true,
+            }
+        },
+        {
+            type: 'input',
+            title: '外业作业内容及工作量',
+            field: 'wyzynr4',
+            value: '',
+            col: {
+                span: 12,
+                labelWidth: '155px',
+            },
+            props: {
+                type: 'text',
+                disabled: true,
+            }
+        },
+        {
+            type: 'input',
+            title: '作业人员',
+            field: 'wyzyry4',
+            value: '',
+            col: {
+                span: 6
+            },
+            props: {
+                type: 'text',
+                disabled: true,
+            }
+        },
+        {
+            type: 'DatePicker',
+            field: 'nyzysj',
+            title: '内业作业时间',
+            value: '',
+            col: {
+                span: 6
+            },
+            props: {
+                type: 'date',
+                format: 'yyyy-MM-dd',
+                placeholder: '选择时间',
+                disabled: true,
+            }
+        },
+        {
+            type: 'input',
+            title: '内业作业内容及工作量',
+            field: 'nyzynr',
+            value: '',
+            col: {
+                span: 12,
+                labelWidth: '155px',
+            },
+            props: {
+                type: 'text',
+                disabled: true,
+            }
+        },
+        {
+            type: 'input',
+            title: '作业人员',
+            field: 'nyzyry',
+            value: '',
+            col: {
+                span: 6
+            },
+            props: {
+                type: 'text',
+                disabled: true,
+            }
+        },
+        {
+            type: 'select',
+            title: '项目结算方式',
+            field: 'xmjsfs',
+            value: '',
+            options: [],
+            col: {
+                span: 6
+            },
+            props: {
+                filterable: true,
+                allowCreate: true
+            }
+        },
+        {
+            type: 'input',
+            title: '结算金额',
+            field: 'jsje',
+            value: '',
+            col: {
+                span: 12
+            },
+            props: {
+                type: 'text'
+            }
+        },
+        {
+            type: 'DatePicker',
+            field: 'gdsj',
+            title: '归档时间',
+            value: '',
+            col: {
+                span: 6
+            },
+            props: {
+                type: 'date',
+                format: 'yyyy-MM-dd',
+                placeholder: '选择时间',
+                disabled: true,
+            }
+        },
+        {
+            type: 'select',
+            title: '是否开票',
+            field: 'sfkp',
+            value: '',
+            options: [],
+            col: {
+                span: 6
+            },
+            props: {
+                filterable: true,
+                allowCreate: true
+            }
+        },
+        {
+            type: 'select',
+            title: '发票类型',
+            field: 'fplx',
+            value: '',
+            options: [],
+            col: {
+                span: 6
+            },
+            props: {
+                filterable: true,
+                allowCreate: true
+            }
+        },
+        {
+            type: 'select',
+            title: '收款进度',
+            field: 'skjd',
+            value: '',
+            options: [],
+            col: {
+                span: 12
+            },
+            props: {
+                filterable: true,
+                allowCreate: true
+            }
+        },
+        {
+            type: 'DatePicker',
+            field: 'sksj',
+            title: '收款时间',
+            value: '',
+            col: {
+                span: 12
+            },
+            props: {
+                type: 'date',
+                format: 'yyyy-MM-dd',
+                placeholder: '选择时间'
+            }
+        },
+        {
+            type: 'input',
+            title: '收款金额',
+            field: 'skje',
+            value: '',
+            col: {
+                span: 12
+            },
+            props: {
+                type: 'text'
+            }
+        },
+        {
+            type: 'input',
             title: '合同概要',
             field: 'htgy',
             value: '',
