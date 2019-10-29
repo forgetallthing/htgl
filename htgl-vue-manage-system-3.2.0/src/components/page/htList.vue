@@ -85,6 +85,7 @@
                     <el-table-column prop="wtdw" label="委托单位" sortable></el-table-column>
                     <el-table-column v-if="!filterHidden.col_htfcsj" prop="htfcsj" label="合同发出时间" sortable></el-table-column>
                     <el-table-column v-if="!filterHidden.col_htfhsj" prop="htfhsj" label="合同返回时间" sortable></el-table-column>
+                    <el-table-column  prop="xmkssj" label="项目开始时间" sortable></el-table-column>
                     <el-table-column v-if="!filterHidden.col_skjd" prop="skjd" label="收款进度" sortable></el-table-column>
                     <el-table-column label="操作" width="150">
                         <template slot-scope="scope">
@@ -206,9 +207,9 @@ export default {
           return false;
         if (this.filter.htfhsj === "已返回" && !v.htfhsj) return false;
         if (this.filter.htfhsj === "未返回" && v.htfhsj) return false;
-        if (this.filter.startTime && v.htfcsj <= this.filter.startTime)
+        if (this.filter.startTime && v.xmkssj <= this.filter.startTime)
           return false;
-        if (this.filter.endTime && v.htfcsj >= this.filter.endTime)
+        if (this.filter.endTime && v.xmkssj >= this.filter.endTime)
           return false;
         return true;
       });

@@ -14,7 +14,8 @@ function getContracts(userId, p, callback) {
                 wtdw: v[8],
                 htfcsj: v[4],
                 htfhsj: v[7],
-                skjd: v[40]
+                skjd: v[40],
+                xmkssj:v[11]
             };
         });
         callback(0, {
@@ -78,7 +79,8 @@ function getContractContent(userId, p, callback) {
                 sksj: v[41],
                 skje: v[42],
                 htgy: v[43],
-                bz: v[44]
+                bz: v[44],
+                xmjd:v[45]
             };
         });
 
@@ -91,7 +93,7 @@ function getContractContent(userId, p, callback) {
         if (p.role === 'finance') res.struct = struct.cw;
 
         for (let i = 0; i < res.struct.length; i++) {
-            if (res.struct[i].type == 'select') {
+            if (res.struct[i].type == 'select' && res.struct[i].field != 'xmjd') {
                 let ops = list[res.struct[i].field + '_selects'] || [];
                 ops = ops.map(v => {
                     return {
@@ -125,6 +127,11 @@ function addContract(userId, p, callback) {
 
 function saveContract(userId, p, callback) {
     co(function*() {
+        p.formData.wygzl1 = '';
+        p.formData.wygzl2 = '';
+        p.formData.wygzl3 = '';
+        p.formData.wygzl4 = '';
+        p.formData.nygzl = '';
         let result = yield common.toPromise(contractDao.saveContract, p.formData);
         if (result.code == 1) {
             callback(0, {
@@ -374,24 +381,6 @@ let struct = {
             }
         },
         {
-            type: 'select',
-            title: '项目进度',
-            field: 'xmjd',
-            value: '未开始',
-            options: [
-                {"value": "未开始", "label": "未开始"},
-                {"value": "进行中", "label": "进行中"},
-                {"value": "已完成", "label": "已完成"},
-            ],
-            col: {
-                span: 24
-            },
-            props: {
-                filterable: true,
-                disabled: true,
-            }
-        },
-        {
             type: 'DatePicker',
             field: 'wyzysj1',
             title: '外业作业时间',
@@ -588,12 +577,30 @@ let struct = {
         },
         {
             type: 'select',
+            title: '项目进度',
+            field: 'xmjd',
+            value: '未开始',
+            options: [
+                {"value": "未开始", "label": "未开始"},
+                {"value": "进行中", "label": "进行中"},
+                {"value": "已完成", "label": "已完成"},
+            ],
+            col: {
+                span: 6
+            },
+            props: {
+                filterable: true,
+                disabled: false,
+            }
+        },
+        {
+            type: 'select',
             title: '项目结算方式',
             field: 'xmjsfs',
             value: '',
             options: [],
             col: {
-                span: 12
+                span: 6
             },
             props: {
                 filterable: true,
@@ -633,7 +640,7 @@ let struct = {
             value: '',
             options: [],
             col: {
-                span: 12
+                span: 6
             },
             props: {
                 filterable: true,
@@ -647,7 +654,7 @@ let struct = {
             value: '',
             options: [],
             col: {
-                span: 12
+                span: 6
             },
             props: {
                 filterable: true,
@@ -661,7 +668,7 @@ let struct = {
             value: '',
             options: [],
             col: {
-                span: 12
+                span: 6
             },
             props: {
                 filterable: true,
@@ -688,7 +695,7 @@ let struct = {
             field: 'skje',
             value: '',
             col: {
-                span: 6
+                span: 12
             },
             props: {
                 type: 'text'
@@ -760,7 +767,7 @@ let struct = {
             },
             props: {
                 type: 'text',
-                disabled: false
+                disabled: true
             }
         },
         {
@@ -917,24 +924,6 @@ let struct = {
             }
         },
         {
-            type: 'select',
-            title: '项目进度',
-            field: 'xmjd',
-            value: '未开始',
-            options: [
-                {"value": "未开始", "label": "未开始"},
-                {"value": "进行中", "label": "进行中"},
-                {"value": "已完成", "label": "已完成"},
-            ],
-            col: {
-                span: 24
-            },
-            props: {
-                filterable: true,
-                disabled: true,
-            }
-        },
-        {
             type: 'DatePicker',
             field: 'wyzysj1',
             title: '外业作业时间',
@@ -1145,6 +1134,24 @@ let struct = {
             }
         },
         {
+            type: 'select',
+            title: '项目进度',
+            field: 'xmjd',
+            value: '未开始',
+            options: [
+                {"value": "未开始", "label": "未开始"},
+                {"value": "进行中", "label": "进行中"},
+                {"value": "已完成", "label": "已完成"},
+            ],
+            col: {
+                span: 6
+            },
+            props: {
+                filterable: true,
+                disabled: true,
+            }
+        },
+        {
             type: 'hidden',
             title: '项目结算方式',
             field: 'xmjsfs',
@@ -1178,7 +1185,7 @@ let struct = {
             title: '归档时间',
             value: '',
             col: {
-                span: 24
+                span: 6
             },
             props: {
                 type: 'date',
@@ -1482,24 +1489,6 @@ let struct = {
             }
         },
         {
-            type: 'select',
-            title: '项目进度',
-            field: 'xmjd',
-            value: '未开始',
-            options: [
-                {"value": "未开始", "label": "未开始"},
-                {"value": "进行中", "label": "进行中"},
-                {"value": "已完成", "label": "已完成"},
-            ],
-            col: {
-                span: 24
-            },
-            props: {
-                filterable: true,
-                disabled: false,
-            }
-        },
-        {
             type: 'DatePicker',
             field: 'wyzysj1',
             title: '外业作业时间',
@@ -1692,6 +1681,24 @@ let struct = {
             },
             props: {
                 type: 'text'
+            }
+        },
+        {
+            type: 'select',
+            title: '项目进度',
+            field: 'xmjd',
+            value: '未开始',
+            options: [
+                {"value": "未开始", "label": "未开始"},
+                {"value": "进行中", "label": "进行中"},
+                {"value": "已完成", "label": "已完成"},
+            ],
+            col: {
+                span: 6
+            },
+            props: {
+                filterable: true,
+                disabled: false,
             }
         },
         {
@@ -2026,24 +2033,6 @@ let struct = {
             }
         },
         {
-            type: 'select',
-            title: '项目进度',
-            field: 'xmjd',
-            value: '未开始',
-            options: [
-                {"value": "未开始", "label": "未开始"},
-                {"value": "进行中", "label": "进行中"},
-                {"value": "已完成", "label": "已完成"},
-            ],
-            col: {
-                span: 24
-            },
-            props: {
-                filterable: true,
-                disabled: true,
-            }
-        },
-        {
             type: 'DatePicker',
             field: 'wyzysj1',
             title: '外业作业时间',
@@ -2255,6 +2244,24 @@ let struct = {
         },
         {
             type: 'select',
+            title: '项目进度',
+            field: 'xmjd',
+            value: '未开始',
+            options: [
+                {"value": "未开始", "label": "未开始"},
+                {"value": "进行中", "label": "进行中"},
+                {"value": "已完成", "label": "已完成"},
+            ],
+            col: {
+                span: 6
+            },
+            props: {
+                filterable: true,
+                disabled: true,
+            }
+        },
+        {
+            type: 'select',
             title: '项目结算方式',
             field: 'xmjsfs',
             value: '',
@@ -2273,7 +2280,7 @@ let struct = {
             field: 'jsje',
             value: '',
             col: {
-                span: 12
+                span: 6
             },
             props: {
                 type: 'text'
@@ -2329,7 +2336,7 @@ let struct = {
             value: '',
             options: [],
             col: {
-                span: 12
+                span: 6
             },
             props: {
                 filterable: true,
@@ -2342,7 +2349,7 @@ let struct = {
             title: '收款时间',
             value: '',
             col: {
-                span: 12
+                span: 6
             },
             props: {
                 type: 'date',
