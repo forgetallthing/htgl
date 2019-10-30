@@ -26,7 +26,7 @@ export default {
             option: {
                 form: {
                     labelPosition: 'left',
-                    labelWidth: '100px',
+                    labelWidth: '100px'
                 },
                 row: {
                     gutter: 10
@@ -41,7 +41,8 @@ export default {
             param: {
                 htbh: 'ht_001'
             },
-            ms_role: ''
+            ms_role: '',
+            id: ''
         };
     },
     mounted() {
@@ -65,6 +66,7 @@ export default {
                     res => {
                         console.log(res.value);
                         this.rule = res.value.struct;
+                        this.id = res.value.data.id;
                         this.$nextTick(() => {
                             this.fApi.setValue(res.value.data);
                         });
@@ -81,6 +83,7 @@ export default {
             for (let i in formData) {
                 if (!formData[i]) formData[i] = '';
             }
+            formData.id = this.id;
             let loadingInstance = this.$loading({ target: '.content' });
             saveContract({
                 formData: formData
@@ -140,7 +143,7 @@ export default {
 .el-col {
     margin-bottom: 6px;
 }
-.el-date-editor  {
+.el-date-editor {
     width: 100% !important;
 }
 </style>

@@ -15,7 +15,8 @@ function getContracts(userId, p, callback) {
                 htfcsj: v[4],
                 htfhsj: v[7],
                 skjd: v[40],
-                xmkssj:v[11]
+                xmkssj:v[11],
+                xmjd:v[45]
             };
         });
         callback(0, {
@@ -226,7 +227,6 @@ let struct = {
             },
             props: {
                 type: 'text',
-                disabled: true
             }
         },
         {
@@ -767,7 +767,6 @@ let struct = {
             },
             props: {
                 type: 'text',
-                disabled: true
             }
         },
         {
