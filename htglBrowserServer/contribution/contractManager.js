@@ -16,7 +16,8 @@ function getContracts(userId, p, callback) {
                 htfhsj: v[7],
                 skjd: v[40],
                 xmkssj:v[11],
-                xmjd:v[45]
+                xmjd:v[45],
+                zybm:v[6],
             };
         });
         callback(0, {

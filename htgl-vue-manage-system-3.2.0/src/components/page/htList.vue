@@ -14,6 +14,15 @@
                                 <el-input @keyup.enter.native="search()" placeholder="请输入" v-model="filter.xmmc"> </el-input>
                             </el-form-item>
                         </el-col>
+                        <el-col :hidden="filterHidden.htfcsj" :span="2">
+                            <el-form-item label-width="100px" label="项目承接时间:"> </el-form-item>
+                        </el-col>
+                        <el-col :hidden="filterHidden.htfcsj" :span="4">
+                            <el-date-picker value-format="yyyy-MM-dd" class="date-picker" v-model="filter.startTime" type="date" placeholder="起始日期"> </el-date-picker>
+                        </el-col>
+                        <el-col :hidden="filterHidden.htfcsj" :span="4">
+                            <el-date-picker value-format="yyyy-MM-dd" class="date-picker" v-model="filter.endTime" type="date" placeholder="结束日期"> </el-date-picker>
+                        </el-col>
                         <el-col :hidden="filterHidden.wtdw" :span="6">
                             <el-form-item label-width="80px" label="委托单位:">
                                 <el-input @keyup.enter.native="search()" placeholder="请输入" v-model="filter.wtdw"> </el-input>
@@ -24,33 +33,31 @@
                                 <el-input @keyup.enter.native="search()" placeholder="请输入" v-model="filter.skjd"> </el-input>
                             </el-form-item>
                         </el-col>
-                        <el-col :hidden="filterHidden.htfcsj" :span="2.4">
-                            <el-form-item label-width="100px" label="项目承接时间:"> </el-form-item>
-                        </el-col>
-                        <el-col :hidden="filterHidden.htfcsj" :span="4">
-                            <el-date-picker value-format="yyyy-MM-dd" class="date-picker" v-model="filter.startTime" type="date" placeholder="起始日期"> </el-date-picker>
-                        </el-col>
-                        <el-col :hidden="filterHidden.htfcsj" :span="4">
-                            <el-date-picker value-format="yyyy-MM-dd" class="date-picker" v-model="filter.endTime" type="date" placeholder="结束日期"> </el-date-picker>
-                        </el-col>
-                        <el-col :hidden="filterHidden.htfhsj" :span="4">
+                        <el-col :hidden="filterHidden.htfhsj" :span="6">
                             <el-form-item label-width="100px" label="合同返回时间:">
                                 <el-select v-model="filter.htfhsj" placeholder="请选择">
                                     <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value"> </el-option>
                                 </el-select>
                             </el-form-item>
                         </el-col>
-                        <el-col :hidden="filterHidden.xmjd" :span="4">
+                        <el-col :hidden="filterHidden.xmjd" :span="6">
                             <el-form-item label-width="80px" label="项目进度:">
                                 <el-select v-model="filter.xmjd" placeholder="请选择">
                                     <el-option v-for="item in options2" :key="item.value" :label="item.label" :value="item.value"> </el-option>
                                 </el-select>
                             </el-form-item>
                         </el-col>
-                        <el-col :span="2" style="text-align:right;">
+                        <el-col :hidden="filterHidden.zybm" :span="6">
+                            <el-form-item label-width="80px" label="作业部门:">
+                                <el-select v-model="filter.zybm" placeholder="请选择">
+                                    <el-option v-for="item in options3" :key="item.value" :label="item.label" :value="item.value"> </el-option>
+                                </el-select>
+                            </el-form-item>
+                        </el-col>
+                        <el-col :span="3" style="text-align:right;">
                             <el-button style="width:80%;" type="primary" @click="search()">搜索</el-button>
                         </el-col>
-                        <el-col :hidden="['input', 'admin', 'finance'].indexOf(ms_role) == -1" :span="2" style="text-align:right;">
+                        <el-col :hidden="['input', 'admin', 'finance'].indexOf(ms_role) == -1" :span="3" style="text-align:right;">
                             <el-button style="width:80%;" type="primary" @click="showCard()">新建</el-button>
                         </el-col>
                     </el-row>
@@ -62,6 +69,7 @@
                     <el-table-column v-if="!filterHidden.col_htbh" prop="htbh" label="合同编号" sortable></el-table-column>
                     <el-table-column prop="xmmc" label="项目名称" sortable></el-table-column>
                     <el-table-column prop="wtdw" label="委托单位" sortable></el-table-column>
+                    <el-table-column prop="zybm" label="作业部门" sortable></el-table-column>
                     <el-table-column v-if="!filterHidden.col_htfcsj" prop="htfcsj" label="合同发出时间" sortable></el-table-column>
                     <el-table-column v-if="!filterHidden.col_htfhsj" prop="htfhsj" label="合同返回时间" sortable></el-table-column>
                     <el-table-column prop="xmkssj" label="项目开始时间" sortable></el-table-column>
@@ -98,7 +106,7 @@ export default {
         return {
             tableData: [],
             tableFilterData: [],
-            tableHeight: window.innerHeight - 229,
+            tableHeight: window.innerHeight - 295,
             filter: {
                 htfhsj: '全部'
             },
@@ -148,6 +156,12 @@ export default {
                     label: '已完成',
                     value: '已完成'
                 }
+            ],
+            options3: [
+                {
+                    label: '全部',
+                    value: '全部'
+                }
             ]
         };
     },
@@ -159,22 +173,14 @@ export default {
             this.ms_role = localStorage.getItem('ms_role');
             if (this.ms_role === 'input') {
                 this.filterHidden = {
-                    wtdw: true,
-                    htfcsj: true,
-                    htfhsj: true,
                     skjd: true,
-                    xmjd: true,
-                    col_skjd: true,
+                    col_skjd: true
                 };
             }
             if (this.ms_role === 'worker') {
                 this.filterHidden = {
                     htbh: true,
-                    wtdw: true,
-                    htfcsj: true,
-                    htfhsj: true,
                     skjd: true,
-                    xmjd: true,
                     col_htbh: true,
                     col_htfcsj: true,
                     col_htfhsj: true,
@@ -186,6 +192,19 @@ export default {
                 res => {
                     loadingInstance.close();
                     this.tableData = res.value.contracts;
+                    let option3 = [];
+                    console.log(res.value.contracts);
+                    for (let i = 0; i < res.value.contracts.length; i++) {
+                        if (res.value.contracts[i].zybm && option3.indexOf(res.value.contracts[i].zybm) == -1) {
+                            option3.push(res.value.contracts[i].zybm);
+                        }
+                    }
+                    for (let i = 0; i < option3.length; i++) {
+                        this.options3.push({
+                            label: option3[i],
+                            value: option3[i]
+                        });
+                    }
                     this.search();
                 },
                 error => {
@@ -208,6 +227,7 @@ export default {
                 if (this.filter.xmjd === '已完成' && v.xmjd !== '已完成') return false;
                 if (this.filter.startTime && v.xmkssj < this.filter.startTime) return false;
                 if (this.filter.endTime && v.xmkssj > this.filter.endTime) return false;
+                if (this.filter.zybm && this.filter.zybm != '全部' && v.zybm != this.filter.zybm ) return false;
                 return true;
             });
             this.tableFilterData = result;
@@ -277,5 +297,8 @@ export default {
 .el-col,
 .el-row {
     margin-bottom: 0;
+}
+.date-picker{
+    margin-bottom: 18px;
 }
 </style>
