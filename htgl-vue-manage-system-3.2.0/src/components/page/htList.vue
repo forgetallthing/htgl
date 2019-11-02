@@ -14,7 +14,19 @@
                                 <el-input @keyup.enter.native="search()" placeholder="请输入" v-model="filter.xmmc"> </el-input>
                             </el-form-item>
                         </el-col>
-                        <el-col :hidden="filterHidden.htfcsj" :span="2">
+                        <el-col :hidden="filterHidden.htfcsj" :span="12">
+                            <el-form-item label-width="100px" label="项目承接时间:" style='margin-bottom:0;'> 
+                                <el-row style='padding-top:0;padding-bottom:0;' :gutter="20">
+                                    <el-col :span='12'>
+                                        <el-date-picker value-format="yyyy-MM-dd" class="date-picker" v-model="filter.startTime" type="date" placeholder="起始日期"> </el-date-picker>
+                                    </el-col>
+                                    <el-col :span='12'>
+                                        <el-date-picker value-format="yyyy-MM-dd" class="date-picker" v-model="filter.endTime" type="date" placeholder="结束日期"> </el-date-picker>
+                                    </el-col>
+                                </el-row>
+                            </el-form-item>
+                        </el-col>
+                        <!-- <el-col :hidden="filterHidden.htfcsj" :span="2">
                             <el-form-item label-width="100px" label="项目承接时间:"> </el-form-item>
                         </el-col>
                         <el-col :hidden="filterHidden.htfcsj" :span="4">
@@ -22,7 +34,7 @@
                         </el-col>
                         <el-col :hidden="filterHidden.htfcsj" :span="4">
                             <el-date-picker value-format="yyyy-MM-dd" class="date-picker" v-model="filter.endTime" type="date" placeholder="结束日期"> </el-date-picker>
-                        </el-col>
+                        </el-col> -->
                         <el-col :hidden="filterHidden.wtdw" :span="6">
                             <el-form-item label-width="80px" label="委托单位:">
                                 <el-input @keyup.enter.native="search()" placeholder="请输入" v-model="filter.wtdw"> </el-input>
@@ -106,7 +118,7 @@ export default {
         return {
             tableData: [],
             tableFilterData: [],
-            tableHeight: window.innerHeight - 295,
+            tableHeight: window.innerHeight - 330,
             filter: {
                 htfhsj: '全部'
             },
@@ -165,7 +177,14 @@ export default {
             ]
         };
     },
+    created(){
+        this.ms_role = localStorage.getItem('ms_role');
+        if (this.ms_role === 'worker') {
+            this.tableHeight = window.innerHeight - 295;
+        }
+    },
     mounted() {
+        
         this.init();
     },
     methods: {
@@ -178,6 +197,7 @@ export default {
                 };
             }
             if (this.ms_role === 'worker') {
+                
                 this.filterHidden = {
                     htbh: true,
                     skjd: true,
